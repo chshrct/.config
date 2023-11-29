@@ -1,0 +1,28 @@
+[core]
+  editor = nvim
+  pager = delta
+  autocrlf = true
+  eol = crlf
+[user]
+  email = eugene.kostroma@gmail.com
+  name = Yauheni Kastrama
+[safe]
+  directory = *
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  true-color = always
+  line-numbers = true
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+  tool = nvimdiff
+[mergetool]
+  keepBackup = false
+  prompt = false
+[mergetool "nvimdiff"]
+ cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"" 
