@@ -1,8 +1,6 @@
 [core]
   editor = nvim
   pager = delta
-  autocrlf = true
-  eol = crlf
 [user]
   email = eugene.kostroma@gmail.com
   name = Yauheni Kastrama
