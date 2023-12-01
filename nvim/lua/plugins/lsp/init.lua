@@ -41,15 +41,6 @@ return {
             },
           },
         },
-        omnisharp = {
-          enable_editorconfig_support = true,
-          enable_ms_build_load_projects_on_demand = false,
-          enable_roslyn_analyzers = true,
-          organize_imports_on_format = true,
-          enable_import_completion = true,
-          sdk_include_prereleases = true,
-          analyze_open_documents_only = false,
-        },
       }
 
       require("neodev").setup()
@@ -80,11 +71,13 @@ return {
       })
 
       -- c# go to definition fix
-      require("plugins.lsp.languages.c#").goToFix(
-        capabilities,
-        on_attach,
-        servers
-      )
+      if vim.loop.os_uname().sysname == "Windows_NT" then
+        require("plugins.lsp.languages.c#").goToFix(
+          capabilities,
+          on_attach,
+          servers
+        )
+      end
     end,
   },
 
