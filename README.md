@@ -8,6 +8,8 @@
 - zellij
 ### Editor
 - nvim
+### Navigation
+- zoxide
 ### Search
 - fzf/rg/fd
 ### FS Prompt
@@ -16,3 +18,5 @@
 - bat
 ### Docs
 - tldr
+### Git
+- git/gh
