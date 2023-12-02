@@ -28,9 +28,6 @@ return {
         "DapStopped",
         { text = icons.DoubleChevronRight, texthl = "DiagnosticOk" }
       )
-
-      -- dotnet settings
-      require("plugins.debug.languages.dotnet").setup()
     end,
   },
 

@@ -9,7 +9,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     keys = {
       { "<leader>v", desc = "Increment selection" },
-      { "<leader>V", desc = "Schrink selection",  mode = "x" },
+      { "<leader>V", desc = "Schrink selection", mode = "x" },
     },
     opts = {
       auto_install = true,

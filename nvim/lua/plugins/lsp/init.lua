@@ -8,7 +8,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
-      "Hoffs/omnisharp-extended-lsp.nvim",
     },
     config = function()
       require("plugins.lsp.keymaps").diagnostic()
@@ -69,15 +68,6 @@ return {
           end
         end,
       })
-
-      -- c# go to definition fix
-      if vim.loop.os_uname().sysname == "Windows_NT" then
-        require("plugins.lsp.languages.c#").goToFix(
-          capabilities,
-          on_attach,
-          servers
-        )
-      end
     end,
   },
 
