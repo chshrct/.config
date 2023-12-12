@@ -3,10 +3,9 @@ if status is-interactive
 end
 
 # ls alliases
-alias ls="exa --icons"
-alias la="exa --icons --all"
-alias ll="exa --icons --all --long"
-alias lt="exa --icons -all -T"
+alias la="eza --icons --all"
+alias ll="eza --icons --all --long"
+alias lt="eza --icons -all -T"
 
 # z jump
 zoxide init fish | source
@@ -24,3 +23,11 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+function glg
+  git lg \
+  | fzf --ansi \
+        --preview "git show --color=always (echo {} \
+                                            | awk '{print \$2}') \
+                                            | delta"
+end
