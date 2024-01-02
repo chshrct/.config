@@ -16,8 +16,6 @@ starship init fish | source
 # editor
 set -gx EDITOR nvim
 
-# catppuccin theme
-
 # fzf
 set -Ux FZF_DEFAULT_OPTS "\
 --color=spinner:#f5e0dc,hl:#f38ba8 \
