@@ -110,17 +110,23 @@ return {
         -- Change specific vim highlight groups
         -- https://github.com/rose-pine/neovim/wiki/Recipes
         highlight_groups = {
+          WinSeparator = { fg = "#56526e", bg = "none" },
+
           -- gitsigns
-          GitSignsDelete = { bg = "none" },
-          GitSignsChange = { bg = "none" },
-          GitSignsAdd = { bg = "none" },
+          GitSignsDelete = { fg = "#eb6f92", bg = "none" },
+          GitSignsChange = { fg = "#f6c177", bg = "none" },
+          GitSignsAdd = { fg = "#9ccfd8", bg = "none" },
 
           -- telescope
-          TelescopeBorder = { fg = "highlight_high", bg = "none" },
+          TelescopeTitle = { fg = "#9ccfd8", bg = "none" },
+          TelescopeBorder = { fg = "#56526e", bg = "none" },
           TelescopeNormal = { bg = "none" },
           TelescopePromptNormal = { bg = "none" },
           TelescopeResultsNormal = { fg = "subtle", bg = "none" },
           TelescopeSelection = { fg = "text", bg = "base" },
+          TelescopePromptPrefix = { fg = "#ea9a97" },
+          TelescopeSelectionCaret = { fg = "#ea9a97", bg = "none" },
+          NoiceCmdlinePopupBorder = { fg = "#56526e", bg = "none" },
 
           -- numbers
           CursorLineNr = { fg = "gold" },
@@ -128,6 +134,10 @@ return {
           -- treesitter context
           TreesitterContext = { bg = "none" },
           TreesitterContextLineNumber = { fg = "iris" },
+
+          -- noice
+          NoiceCmdlineIcon = { fg = "#ea9a97", bg = "none" },
+          NoiceCmdlineIconSearch = { fg = "#ea9a97", bg = "none" },
         },
       })
 
