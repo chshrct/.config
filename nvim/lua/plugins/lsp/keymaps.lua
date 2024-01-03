@@ -84,7 +84,7 @@ M.lsp = function(bufnr)
     { buffer = bufnr, desc = "lsp: hover documentation" }
   )
   vim.keymap.set(
-    "n",
+    { "n", "i" },
     "<C-k>",
     vim.lsp.buf.signature_help,
     { buffer = bufnr, desc = "lsp: signature documentation" }
