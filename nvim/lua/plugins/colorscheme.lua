@@ -69,31 +69,37 @@ return {
     priority = 1000,
     config = function()
       require("rose-pine").setup({
-        --- @usage 'auto'|'main'|'moon'|'dawn'
-        variant = "moon",
-        --- @usage 'main'|'moon'|'dawn'
-        dark_variant = "moon",
-        bold_vert_split = false,
-        dim_nc_background = false,
-        disable_background = true,
-        disable_float_background = true,
-        disable_italics = false,
+        variant = "auto", -- auto, main, moon, or dawn
+        dark_variant = "moon", -- main, moon, or dawn
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
 
-        --- @usage string hex value or named color from rosepinetheme.com/palette
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = true,
+        },
+
         groups = {
-          background = "base",
-          background_nc = "_experimental_nc",
-          panel = "surface",
-          panel_nc = "base",
-          border = "highlight_med",
-          comment = "subtle",
+          border = "muted",
           link = "iris",
-          punctuation = "subtle",
+          panel = "surface",
 
           error = "love",
           hint = "iris",
           info = "foam",
           warn = "gold",
+
+          git_add = "foam",
+          git_change = "rose",
+          git_delete = "love",
+          git_dirty = "rose",
+          git_ignore = "muted",
+          git_merge = "iris",
+          git_rename = "pine",
+          git_stage = "iris",
+          git_text = "rose",
+          git_untracked = "subtle",
 
           headings = {
             h1 = "iris",
@@ -103,30 +109,30 @@ return {
             h5 = "pine",
             h6 = "foam",
           },
-          -- or set all headings at once
-          -- headings = 'subtle'
+          -- Alternatively, set all headings at once.
+          -- headings = "subtle",
         },
-
         -- Change specific vim highlight groups
         -- https://github.com/rose-pine/neovim/wiki/Recipes
         highlight_groups = {
-          WinSeparator = { fg = "#56526e", bg = "none" },
+          Directory = { fg = "foam", bg = "none" },
+          WinSeparator = { fg = "highlight_high", bg = "none" },
 
           -- gitsigns
-          GitSignsDelete = { fg = "#eb6f92", bg = "none" },
-          GitSignsChange = { fg = "#f6c177", bg = "none" },
-          GitSignsAdd = { fg = "#9ccfd8", bg = "none" },
+          GitSignsDelete = { fg = "love", bg = "none" },
+          GitSignsChange = { fg = "gold", bg = "none" },
+          GitSignsAdd = { fg = "foam", bg = "none" },
 
           -- telescope
-          TelescopeTitle = { fg = "#9ccfd8", bg = "none" },
-          TelescopeBorder = { fg = "#56526e", bg = "none" },
+          TelescopeTitle = { fg = "foam", bg = "none" },
+          TelescopeBorder = { fg = "highlight_high", bg = "none" },
           TelescopeNormal = { bg = "none" },
           TelescopePromptNormal = { bg = "none" },
           TelescopeResultsNormal = { fg = "subtle", bg = "none" },
           TelescopeSelection = { fg = "text", bg = "base" },
-          TelescopePromptPrefix = { fg = "#ea9a97" },
-          TelescopeSelectionCaret = { fg = "#ea9a97", bg = "none" },
-          NoiceCmdlinePopupBorder = { fg = "#56526e", bg = "none" },
+          TelescopePromptPrefix = { fg = "rose" },
+          TelescopeSelectionCaret = { fg = "rose", bg = "none" },
+          NoiceCmdlinePopupBorder = { fg = "highlight_high", bg = "none" },
 
           -- numbers
           CursorLineNr = { fg = "gold" },
@@ -136,8 +142,8 @@ return {
           TreesitterContextLineNumber = { fg = "iris" },
 
           -- noice
-          NoiceCmdlineIcon = { fg = "#ea9a97", bg = "none" },
-          NoiceCmdlineIconSearch = { fg = "#ea9a97", bg = "none" },
+          NoiceCmdlineIcon = { fg = "rose", bg = "none" },
+          NoiceCmdlineIconSearch = { fg = "rose", bg = "none" },
         },
       })
 
