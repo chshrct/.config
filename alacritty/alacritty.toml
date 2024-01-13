@@ -18,14 +18,6 @@ background = "#232136"
 dim_foreground = "#908caa"
 bright_foreground = "#e0def4"
 
-[colors.cursor]
-text = "#e0def4"
-cursor = "#56526e"
-
-[colors.vi_mode_cursor]
-text = "#e0def4"
-cursor = "#56526e"
-
 [colors.search.matches]
 foreground = "#908caa"
 background = "#393552"
