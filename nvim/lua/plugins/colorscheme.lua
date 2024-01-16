@@ -118,21 +118,8 @@ return {
           Directory = { fg = "foam", bg = "none" },
           WinSeparator = { fg = "highlight_high", bg = "none" },
 
-          -- gitsigns
-          GitSignsDelete = { fg = "love", bg = "none" },
-          GitSignsChange = { fg = "gold", bg = "none" },
-          GitSignsAdd = { fg = "foam", bg = "none" },
-
           -- telescope
           TelescopeTitle = { fg = "foam", bg = "none" },
-          TelescopeBorder = { fg = "highlight_high", bg = "none" },
-          TelescopeNormal = { bg = "none" },
-          TelescopePromptNormal = { bg = "none" },
-          TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-          TelescopeSelection = { fg = "text", bg = "base" },
-          TelescopePromptPrefix = { fg = "rose" },
-          TelescopeSelectionCaret = { fg = "rose", bg = "none" },
-          NoiceCmdlinePopupBorder = { fg = "highlight_high", bg = "none" },
 
           -- numbers
           CursorLineNr = { fg = "gold" },
@@ -142,6 +129,7 @@ return {
           TreesitterContextLineNumber = { fg = "iris" },
 
           -- noice
+          NoiceCmdlinePopupBorder = { fg = "highlight_high", bg = "none" },
           NoiceCmdlineIcon = { fg = "rose", bg = "none" },
           NoiceCmdlineIconSearch = { fg = "rose", bg = "none" },
         },
