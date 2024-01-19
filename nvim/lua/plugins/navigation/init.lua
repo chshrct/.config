@@ -98,6 +98,16 @@ return {
               "!**/.git/*",
             },
           },
+          buffers = {
+            mappings = {
+              n = {
+                ["<C-d>"] = actions.delete_buffer,
+              },
+              i = {
+                ["<C-d>"] = actions.delete_buffer,
+              },
+            },
+          },
         },
         defaults = {
           -- `hidden = true` is not supported in text grep commands.
@@ -123,7 +133,6 @@ return {
           },
           mappings = {
             n = {
-              ["bd"] = actions.delete_buffer,
               ["Esc"] = actions.close,
               ["<C-c>"] = actions.close,
               ["<C-n>"] = actions.cycle_history_next,
