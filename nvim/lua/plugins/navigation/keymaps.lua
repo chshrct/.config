@@ -94,6 +94,18 @@ M.telescope = function()
       silent = true,
       desc = "[s]earch [m]arks",
     },
+    {
+      "<leader>sv",
+      builtin.vim_options,
+      silent = true,
+      desc = "[s]earch [v]im options",
+    },
+    {
+      "<leader>sr",
+      builtin.registers,
+      silent = true,
+      desc = "[s]earch [r]egisters",
+    },
 
     -- git
     {
