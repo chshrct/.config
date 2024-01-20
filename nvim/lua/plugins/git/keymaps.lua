@@ -111,15 +111,21 @@ M.diffview = {
     desc = "[g]it [d]iff",
   },
   {
-    "<leader>gf",
+    "<leader>gh",
     function()
+      local isModeVisual = vim.api.nvim_get_mode().mode == "V"
       vim.ui.input({ prompt = "Files history paths/options" }, function(input)
         if input then
-          vim.api.nvim_command("DiffviewFileHistory" .. " " .. input)
+          if isModeVisual then
+            vim.api.nvim_command("'<,'>DiffviewFileHistory")
+          else
+            vim.api.nvim_command("DiffviewFileHistory" .. " " .. input)
+          end
         end
       end)
     end,
-    desc = "[g]it [f]ile history",
+    mode = { "n", "v" },
+    desc = "[g]it file [h]istory",
   },
 }
 
