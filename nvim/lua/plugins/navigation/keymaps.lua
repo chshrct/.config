@@ -88,6 +88,12 @@ M.telescope = function()
       silent = true,
       desc = "[s]earch [k]eymaps",
     },
+    {
+      "<leader>sm",
+      builtin.marks,
+      silent = true,
+      desc = "[s]earch [m]arks",
+    },
 
     -- git
     {
