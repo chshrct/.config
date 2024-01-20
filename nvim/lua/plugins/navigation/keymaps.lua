@@ -49,7 +49,7 @@ M.telescope = function()
       function()
         return builtin.live_grep({
           prompt_title = "Live Grep(hidden/ignore)",
-          additional_args = { '--hidden', '--no-ignore' }
+          additional_args = { "--hidden", "--no-ignore" },
         })
       end,
       desc = "[s]earch [S]tring hidden/ignore",
@@ -62,7 +62,9 @@ M.telescope = function()
     {
       "<leader>sW",
       function()
-        return builtin.grep_string({ additional_args = { '--hidden', '--no-ignore' } })
+        return builtin.grep_string({
+          additional_args = { "--hidden", "--no-ignore" },
+        })
       end,
       desc = "[s]earch [W]ord under cursor hidden/ignore",
     },
@@ -85,6 +87,26 @@ M.telescope = function()
       builtin.keymaps,
       silent = true,
       desc = "[s]earch [k]eymaps",
+    },
+
+    -- git
+    {
+      "<leader>gl",
+      builtin.git_commits,
+      silent = true,
+      desc = "[g]it [l]og",
+    },
+    {
+      "<leader>gb",
+      builtin.git_branches,
+      silent = true,
+      desc = "[g]it [b]ranch",
+    },
+    {
+      "<leader>gs",
+      builtin.git_status,
+      silent = true,
+      desc = "[g]it [s]tatus",
     },
   }
 end
