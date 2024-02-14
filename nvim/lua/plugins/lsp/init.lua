@@ -101,24 +101,12 @@ return {
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       local nls = require("null-ls")
-      local hasEslint = function(utils)
-        return utils.root_has_file({ ".eslintrc.json" })
-      end
       nls.setup({
         sources = {
           -- Lua
           nls.builtins.formatting.stylua,
           -- JS/TS
           nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.eslint_d.with({ -- js/ts linter
-            condition = hasEslint,
-          }),
-          nls.builtins.diagnostics.eslint_d.with({ -- js/ts linter
-            condition = hasEslint,
-          }),
-          nls.builtins.code_actions.eslint_d.with({ -- js/ts linter
-            condition = hasEslint,
-          }),
         },
       })
     end,
