@@ -94,21 +94,36 @@ return {
     },
   },
 
-  -- Linters/Formatter
   {
-    "nvimtools/none-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "neovim/nvim-lspconfig" },
+    "stevearc/conform.nvim",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
     config = function()
-      local nls = require("null-ls")
-      nls.setup({
-        sources = {
-          -- Lua
-          nls.builtins.formatting.stylua,
-          -- JS/TS
-          nls.builtins.formatting.prettierd,
+      local conform = require("conform")
+
+      conform.setup({
+        formatters_by_ft = {
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
+          svelte = { "prettier" },
+          css = { "prettier" },
+          html = { "prettier" },
+          json = { "prettier" },
+          yaml = { "prettier" },
+          markdown = { "prettier" },
+          graphql = { "prettier" },
+          lua = { "stylua" },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 1000,
         },
       })
+
+      require("plugins.lsp.keymaps").format(conform)
     end,
   },
 }

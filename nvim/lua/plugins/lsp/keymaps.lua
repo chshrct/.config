@@ -34,12 +34,12 @@ M.lsp = function(bufnr)
     vim.lsp.buf.code_action,
     { buffer = bufnr, desc = "[l]sp: [a]ction" }
   )
-  vim.keymap.set(
-    "n",
-    "<leader>lf",
-    vim.lsp.buf.format,
-    { buffer = bufnr, desc = "[l]sp: [f]ormat" }
-  )
+  -- vim.keymap.set(
+  --   "n",
+  --   "<leader>lf",
+  --   vim.lsp.buf.format,
+  --   { buffer = bufnr, desc = "[l]sp: [f]ormat" }
+  -- )
   vim.keymap.set(
     "n",
     "gd",
@@ -133,6 +133,16 @@ M.typescript = function(bufnr)
     ":TSToolsRenameFile<CR>",
     { buffer = bufnr, desc = "[l]sp: [r]ename file", silent = true }
   )
+end
+
+M.format = function(conform)
+  vim.keymap.set("n", "<leader>lf", function()
+    conform.format({
+      lsp_fallback = true,
+      async = false,
+      timeout_ms = 1000,
+    })
+  end, { desc = "[l]sp: [f]ormat" })
 end
 
 return M
