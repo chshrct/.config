@@ -2,16 +2,16 @@ local M = {}
 
 M.neotree = {
   {
-    "<leader>xt",
+    "<leader>xf",
     ":Neotree toggle<CR>",
     silent = true,
-    desc = "e[x]plorer [t]oggle ",
+    desc = "e[x]plore [f]iles ",
   },
   {
-    "<leader>xf",
-    ":Neotree<CR>",
+    "<leader>xg",
+    ":Neotree git_status toggle<CR>",
     silent = true,
-    desc = "e[x]plorer [f]ocus",
+    desc = "e[x]plore [g]it files ",
   },
 }
 

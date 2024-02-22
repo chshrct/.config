@@ -1,60 +1,88 @@
 return {
 
-  -- nvimtree
+  -- neotree
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    cmd = "Neotree",
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    keys = {
-      {
-        "<leader>xf",
-        ":NvimTreeFocus<CR>",
-        silent = true,
-        desc = "e[x]plorer [f]ocus",
-      },
-      {
-        "<leader>xt",
-        ":NvimTreeToggle<CR>",
-        silent = true,
-        desc = "e[x]plorer [t]oggle",
-      },
-    },
+    keys = require("plugins.navigation.keymaps").neotree,
     opts = {
-      disable_netrw = true,
-      hijack_netrw = true,
-      hijack_cursor = true,
-      hijack_unnamed_buffer_when_opening = false,
-      sync_root_with_cwd = true,
-      update_focused_file = {
-        enable = true,
-        update_root = false,
-      },
-      filters = {
-        dotfiles = true,
-        git_ignored = true,
-      },
-      view = {
-        side = "right",
-        width = 45,
-        preserve_window_proportions = true,
-      },
-      renderer = {
-        root_folder_label = true,
-        highlight_git = false,
-        highlight_opened_files = "none",
-
-        indent_markers = {
-          enable = true,
+      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+      popup_border_style = "rounded",
+      open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
+      window = {
+        position = "right",
+        width = 50,
+        mappings = {
+          ["<space>"] = false,
+          ["o"] = "open",
+          ["h"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" and node:is_expanded() then
+              require("neo-tree.sources.filesystem").toggle_directory(
+                state,
+                node
+              )
+            else
+              require("neo-tree.ui.renderer").focus_node(
+                state,
+                node:get_parent_id()
+              )
+            end
+          end,
+          ["l"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" then
+              if not node:is_expanded() then
+                require("neo-tree.sources.filesystem").toggle_directory(
+                  state,
+                  node
+                )
+              elseif node:has_children() then
+                require("neo-tree.ui.renderer").focus_node(
+                  state,
+                  node:get_child_ids()[1]
+                )
+              end
+            end
+          end,
         },
-        icons = {
-          git_placement = "after",
-          diagnostics_placement = "after",
-          show = {
-            file = true,
-            folder = true,
-            folder_arrow = false,
+      },
+      filesystem = {
+        follow_current_file = {
+          enabled = true, -- This will find and focus the file in the active buffer every time
+        },
+        hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+        window = {
+          mappings = {
+            ["~"] = {
+              "show_help",
+              nowait = false,
+              config = { title = "Order by", prefix_key = "o" },
+            },
+          },
+        },
+      },
+      buffers = {
+        follow_current_file = {
+          enabled = true, -- This will find and focus the file in the active buffer every time
+          --              -- the current file is changed while the tree is open.
+          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+        },
+        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        window = {
+          mappings = {
+            ["~"] = {
+              "show_help",
+              nowait = false,
+              config = { title = "Order by", prefix_key = "o" },
+            },
           },
         },
       },
