@@ -13,7 +13,6 @@ return {
     },
     keys = require("plugins.navigation.keymaps").neotree,
     opts = {
-      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
       window = {
