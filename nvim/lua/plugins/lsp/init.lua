@@ -58,40 +58,15 @@ return {
 
       mason_lspconfig.setup_handlers({
         function(server_name)
-          if server_name ~= "tsserver" then
-            require("lspconfig")[server_name].setup({
-              capabilities = capabilities,
-              on_attach = on_attach,
-              settings = servers[server_name],
-              filetypes = (servers[server_name] or {}).filetypes,
-            })
-          end
+          require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+            filetypes = (servers[server_name] or {}).filetypes,
+          })
         end,
       })
     end,
-  },
-
-  -- typescript tools
-  {
-    "pmizio/typescript-tools.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      on_attach = function(client, bufnr)
-        require("plugins.lsp.keymaps").lsp(bufnr)
-        require("plugins.lsp.keymaps").typescript(bufnr)
-
-        -- hints
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.inlay_hint.enable(bufnr, true)
-        end
-      end,
-      settings = {
-        tsserver_file_preferences = {
-          includeInlayParameterNameHints = "all",
-        },
-      },
-    },
   },
 
   {
