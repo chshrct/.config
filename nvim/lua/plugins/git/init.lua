@@ -2,7 +2,7 @@ return {
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
       signs = {
         add = { text = "▎" },
@@ -21,7 +21,7 @@ return {
   -- git blame
   {
     "f-person/git-blame.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     keys = require("plugins.git.keymaps").gitblame,
     opts = {
       enabled = false,

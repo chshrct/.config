@@ -2,14 +2,14 @@ return {
   -- autotag
   {
     "windwp/nvim-ts-autotag",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {},
   },
 
   -- autopairs
   {
     "windwp/nvim-autopairs",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       require("nvim-autopairs").setup({})
 
@@ -23,7 +23,7 @@ return {
   -- rainbow brackets
   {
     "HiPhish/rainbow-delimiters.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       -- This module contains a number of default definitions
       local rainbow_delimiters = require("rainbow-delimiters")
@@ -54,7 +54,7 @@ return {
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     main = "ibl",
     opts = {
       indent = {
@@ -84,7 +84,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = false, -- Use for stability; omit to use `main` branch for the latest features
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {},
   },
 
@@ -92,7 +92,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
       enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
       max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.

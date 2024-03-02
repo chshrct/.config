@@ -95,7 +95,6 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     config = function()
-
       -- Terminal window mode mapping
       function _G.set_terminal_keymaps()
         local opts =
@@ -141,7 +140,7 @@ return {
   -- lightbulb
   {
     "kosayoda/nvim-lightbulb",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = { "antoinemadec/FixCursorHold.nvim" },
     config = function()
       require("nvim-lightbulb").setup({

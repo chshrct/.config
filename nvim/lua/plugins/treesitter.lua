@@ -5,7 +5,7 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     keys = {
       { "<leader>v", desc = "Increment selection" },
       { "<leader>V", desc = "Schrink selection", mode = "x" },

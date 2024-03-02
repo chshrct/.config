@@ -2,7 +2,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
       { "williamboman/mason.nvim", cmd = "Mason", config = true },
       "williamboman/mason-lspconfig.nvim",
@@ -72,7 +72,7 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       local conform = require("conform")
 
