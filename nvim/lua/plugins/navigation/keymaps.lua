@@ -1,17 +1,17 @@
 local M = {}
 
-M.neotree = {
+M.nvimtree = {
   {
     "<leader>xf",
-    ":Neotree toggle<CR>",
+    ":NvimTreeFocus<CR>",
     silent = true,
-    desc = "e[x]plore [f]iles ",
+    desc = "e[x]plore [f]ocus",
   },
   {
-    "<leader>xg",
-    ":Neotree git_status toggle<CR>",
+    "<leader>xt",
+    ":NvimTreeToggle<CR>",
     silent = true,
-    desc = "e[x]plore [g]it files ",
+    desc = "e[x]plore [t]oggle",
   },
 }
 
