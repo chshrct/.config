@@ -115,6 +115,9 @@ return {
         -- Change specific vim highlight groups
         -- https://github.com/rose-pine/neovim/wiki/Recipes
         highlight_groups = {
+          -- visual
+          Visual = { bg = "highlight_high" },
+
           Directory = { fg = "foam", bg = "none" },
           WinSeparator = { fg = "highlight_high", bg = "none" },
 
