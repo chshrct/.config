@@ -1,29 +1,5 @@
 local M = {}
 
-M.noice = {
-  {
-    "<leader>snl",
-    function()
-      require("noice").cmd("last")
-    end,
-    desc = "[s]earch [n]oice [l]ast message",
-  },
-  {
-    "<leader>snh",
-    function()
-      require("noice").cmd("history")
-    end,
-    desc = "[s]earch [n]oice [h]istory",
-  },
-  {
-    "<leader>sna",
-    function()
-      require("noice").cmd("all")
-    end,
-    desc = "[s]earch [n]oice [a]ll messages",
-  },
-}
-
 M.trouble = {
   {
     "<leader>et",

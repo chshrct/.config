@@ -62,6 +62,7 @@ return {
       vim.cmd.colorscheme("kanagawa")
     end,
   },
+
   {
     "rose-pine/neovim",
     enabled = true,
@@ -130,11 +131,6 @@ return {
           -- treesitter context
           TreesitterContext = { bg = "none" },
           TreesitterContextLineNumber = { fg = "iris" },
-
-          -- noice
-          NoiceCmdlinePopupBorder = { fg = "highlight_high", bg = "none" },
-          NoiceCmdlineIcon = { fg = "rose", bg = "none" },
-          NoiceCmdlineIconSearch = { fg = "rose", bg = "none" },
         },
       })
 
@@ -142,6 +138,7 @@ return {
       vim.cmd("colorscheme rose-pine")
     end,
   },
+
   {
     "catppuccin/nvim",
     enabled = false,
@@ -164,7 +161,6 @@ return {
           markdown = true,
           mason = true,
           neotest = true,
-          noice = true,
           dap = {
             enabled = true,
             enable_ui = true, -- enable nvim-dap-ui
