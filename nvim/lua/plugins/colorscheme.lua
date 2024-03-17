@@ -131,6 +131,10 @@ return {
           -- treesitter context
           TreesitterContext = { bg = "none" },
           TreesitterContextLineNumber = { fg = "iris" },
+
+          -- trouble
+          TroubleNormal = { bg = "none" },
+          TroubleCount = { bg = "none" },
         },
       })
 
