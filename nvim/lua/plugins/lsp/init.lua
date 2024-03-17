@@ -4,71 +4,85 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
-      { "williamboman/mason.nvim", cmd = "Mason", config = true },
+      "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-      "folke/neodev.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+
+      { "j-hui/fidget.nvim", opts = {} },
+
+      { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-      require("plugins.lsp.keymaps").diagnostic()
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+        callback = function(event)
+          require("plugins.lsp.keymaps").lsp(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          -- hints
+          if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(event.buf, true)
+          end
+        end,
+      })
 
-      local on_attach = function(client, bufnr)
-        require("plugins.lsp.keymaps").lsp(bufnr)
-        -- hints
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.inlay_hint.enable(bufnr, true)
-        end
-      end
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend(
+        "force",
+        capabilities,
+        require("cmp_nvim_lsp").default_capabilities()
+      )
 
       local servers = {
+        -- gopls = {},
+        -- pyright = {},
+
         lua_ls = {
-          Lua = {
-            hint = {
-              enable = true,
-            },
-            -- make the language server recognize "vim" global
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              checkThirdParty = false,
-              -- make language server aware of runtime files
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.stdpath("config") .. "/lua"] = true,
+          -- cmd = {...},
+          -- filetypes { ...},
+          -- capabilities = {},
+          settings = {
+            Lua = {
+              hint = {
+                enable = true,
               },
+              completion = {
+                callSnippet = "Replace",
+              },
+              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+              diagnostics = { disable = { "missing-fields" } },
             },
           },
         },
       }
 
-      require("neodev").setup()
+      require("mason").setup()
 
-      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-      -- Ensure the servers above are installed
-      local mason_lspconfig = require("mason-lspconfig")
-
-      mason_lspconfig.setup({
-        ensure_installed = vim.tbl_keys(servers),
+      local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        "stylua",
+      })
+      require("mason-tool-installer").setup({
+        ensure_installed = ensure_installed,
       })
 
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-          })
-        end,
+      require("mason-lspconfig").setup({
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            server.capabilities = vim.tbl_deep_extend(
+              "force",
+              {},
+              capabilities,
+              server.capabilities or {}
+            )
+            require("lspconfig")[server_name].setup(server)
+          end,
+        },
       })
     end,
   },
 
+  -- format
   {
     "stevearc/conform.nvim",
     lazy = true,

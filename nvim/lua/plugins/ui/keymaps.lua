@@ -2,24 +2,24 @@ local M = {}
 
 M.trouble = {
   {
-    "<leader>et",
+    "<leader>ed",
     "<cmd>TroubleToggle document_diagnostics<cr>",
-    desc = "[e]rrors [t]oggle (document)",
+    desc = "lsp: [e]rrors [d]ocument",
   },
   {
-    "<leader>Et",
+    "<leader>ew",
     "<cmd>TroubleToggle workspace_diagnostics<cr>",
-    desc = "[E]rrors [t]oggle (workspace)",
+    desc = "lsp: [e]rrors [w]orkspace",
   },
   {
     "<leader>lt",
     "<cmd>TroubleToggle loclist<cr>",
-    desc = "[l]ocallist [t]oggle",
+    desc = "[l]oclist [t]oggle",
   },
   {
     "<leader>qt",
     "<cmd>TroubleToggle quickfix<cr>",
-    desc = "[q]uickfix [t]oggle",
+    desc = "[q]uickfixlist [t]oggle",
   },
   {
     "[q",
