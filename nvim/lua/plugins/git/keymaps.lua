@@ -6,13 +6,13 @@ M.gitsigns = function(buffer)
   -- Navigation
   vim.keymap.set(
     "n",
-    "]c",
+    "]h",
     gs.next_hunk,
     { buffer = buffer, desc = "next [h]unk" }
   )
   vim.keymap.set(
     "n",
-    "[c",
+    "[h",
     gs.prev_hunk,
     { buffer = buffer, desc = "previous [h]unk" }
   )

@@ -14,12 +14,6 @@ return {
             require("luasnip.loaders.from_vscode").lazy_load()
           end,
         },
-        {
-          "honza/vim-snippets",
-          config = function()
-            require("luasnip.loaders.from_snipmate").lazy_load()
-          end,
-        },
       },
     },
     "saadparwaiz1/cmp_luasnip",
@@ -31,25 +25,18 @@ return {
     "hrsh7th/cmp-cmdline",
   },
   config = function()
-    -- [[ Configure nvim-cmp ]]
-    -- See `:help cmp`
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local icons = require("editor.icons")
 
     cmp.setup({
-      preselect = "item",
-      completion = {
-        completeopt = "menu,menuone,noinsert,noselect",
-      },
+      completion = { completeopt = "menu,menuone,noinsert" },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert(
-        require("plugins.completion.keymaps").cmp(cmp, luasnip)
-      ),
+      mapping = require("plugins.completion.keymaps").cmp(cmp, luasnip),
       sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
@@ -69,7 +56,7 @@ return {
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ "/", "?" }, {
-      mapping = cmp.mapping.preset.cmdline(),
+      completion = { completeopt = "menu,menuone,noinsert,noselect" },
       sources = {
         { name = "buffer" },
       },
@@ -77,7 +64,7 @@ return {
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
+      completion = { completeopt = "menu,menuone,noinsert,noselect" },
       sources = cmp.config.sources({
         { name = "path" },
       }, {
