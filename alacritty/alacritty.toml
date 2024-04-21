@@ -1,3 +1,5 @@
+shell = "pwsh"
+
 [window]
 opacity = 0.85
 dynamic_title = true
