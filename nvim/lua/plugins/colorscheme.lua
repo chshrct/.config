@@ -137,7 +137,7 @@ return {
           TroubleCount = { bg = "none" },
 
           -- diffview
-          DiffText = { reverse = true },
+          DiffText = { bg = "text" },
           DiffChanged = { bg = "none", fg = "rose" },
           DiffAdded = { bg = "none", fg = "foam" },
           DiffRemoved = { bg = "none", fg = "love" },
