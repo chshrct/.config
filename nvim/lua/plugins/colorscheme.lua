@@ -135,6 +135,12 @@ return {
           -- trouble
           TroubleNormal = { bg = "none" },
           TroubleCount = { bg = "none" },
+
+          -- diffview
+          DiffText = { reverse = true },
+          DiffChanged = { bg = "none", fg = "rose" },
+          DiffAdded = { bg = "none", fg = "foam" },
+          DiffRemoved = { bg = "none", fg = "love" },
         },
       })
 
