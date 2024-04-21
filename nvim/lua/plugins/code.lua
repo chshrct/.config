@@ -72,6 +72,7 @@ return {
   -- comments
   {
     "numToStr/Comment.nvim",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     keys = {
       { "gc", mode = { "n", "v" }, desc = "line [c]omment" },
       { "gcc", mode = { "n", "v" }, desc = "line [c]omment" },
@@ -82,9 +83,9 @@ return {
 
   -- surround
   {
-    "kylechui/nvim-surround",
-    version = false, -- Use for stability; omit to use `main` branch for the latest features
+    "echasnovski/mini.surround",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    version = false,
     opts = {},
   },
 
