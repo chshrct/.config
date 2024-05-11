@@ -75,6 +75,7 @@ end
 vim.diagnostic.config({
   severity_sort = true,
   virtual_lines = true,
+  float = { border = "rounded" },
 })
 
 -- powershell windows
