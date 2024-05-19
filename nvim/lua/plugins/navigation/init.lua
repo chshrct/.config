@@ -133,6 +133,9 @@ return {
               -- the default case_mode is "smart_case"
             },
           },
+          preview = {
+            filesize_limit = 0.3,
+          },
           mappings = {
             n = {
               ["Esc"] = actions.close,
