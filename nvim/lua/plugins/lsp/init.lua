@@ -1,97 +1,134 @@
 return {
 
   {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    dependencies = {
-      {
+    {
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        "folke/neodev.nvim",
         "williamboman/mason.nvim",
-        cmd = { "Mason" },
-        opts = {},
+        "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+
+        { "j-hui/fidget.nvim", opts = {} },
+
+        -- Autoformatting
+        "stevearc/conform.nvim",
+
+        -- Schema information
+        "b0o/SchemaStore.nvim",
       },
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      lazy = true,
+      event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+      config = function()
+        require("neodev").setup({
+          -- library = {
+          --   plugins = { "nvim-dap-ui" },
+          --   types = true,
+          -- },
+        })
 
-      { "j-hui/fidget.nvim", opts = {} },
+        -- hover round border
+        local orig_util_open_floating_preview =
+          vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+          opts = opts or {}
+          opts.border = "rounded"
+          return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
 
-      { "folke/neodev.nvim", opts = {} },
-    },
-    config = function()
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
-        callback = function(event)
-          require("plugins.lsp.keymaps").lsp(event)
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          -- hints
-          if client and client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(event.buf, true)
-          end
-        end,
-      })
+        local capabilities = nil
+        if pcall(require, "cmp_nvim_lsp") then
+          capabilities = require("cmp_nvim_lsp").default_capabilities()
+        end
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
-      )
+        local lspconfig = require("lspconfig")
 
-      local servers = {
-        -- gopls = {},
-        -- pyright = {},
-
-        lua_ls = {
-          -- cmd = {...},
-          -- filetypes { ...},
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              hint = {
-                enable = true,
+        local servers = {
+          lua_ls = true,
+          -- web
+          cssls = true,
+          html = true,
+          cssmodules_ls = true,
+          tailwindcss = true,
+          eslint = true,
+          -- Probably want to disable formatting for this lang server
+          tsserver = true,
+          -- configs
+          jsonls = {
+            settings = {
+              json = {
+                schemas = require("schemastore").json.schemas(),
+                validate = { enable = true },
               },
-              completion = {
-                callSnippet = "Replace",
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              diagnostics = { disable = { "missing-fields" } },
             },
           },
-        },
-      }
+          yamlls = {
+            settings = {
+              yaml = {
+                schemaStore = {
+                  enable = false,
+                  url = "",
+                },
+                schemas = require("schemastore").yaml.schemas(),
+              },
+            },
+          },
+        }
 
-      -- To instead override globally
-      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-        opts = opts or {}
-        opts.border = "rounded"
-        return orig_util_open_floating_preview(contents, syntax, opts, ...)
-      end
+        local servers_to_install = vim.tbl_filter(function(key)
+          local t = servers[key]
+          if type(t) == "table" then
+            return not t.manual_install
+          else
+            return t
+          end
+        end, vim.tbl_keys(servers))
 
-      require("mason").setup()
+        require("mason").setup()
+        local ensure_installed = {
+          "stylua",
+          "lua_ls",
+          -- "tailwind-language-server",
+        }
 
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        "stylua",
-      })
-      require("mason-tool-installer").setup({
-        ensure_installed = ensure_installed,
-      })
+        vim.list_extend(ensure_installed, servers_to_install)
+        require("mason-tool-installer").setup({
+          ensure_installed = ensure_installed,
+        })
 
-      require("mason-lspconfig").setup({
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend(
-              "force",
-              {},
-              capabilities,
-              server.capabilities or {}
+        for name, config in pairs(servers) do
+          if config == true then
+            config = {}
+          end
+          config = vim.tbl_deep_extend("force", {}, {
+            capabilities = capabilities,
+          }, config)
+
+          lspconfig[name].setup(config)
+        end
+
+        local disable_semantic_tokens = {
+          lua = true,
+        }
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            local bufnr = args.buf
+            local client = assert(
+              vim.lsp.get_client_by_id(args.data.client_id),
+              "must have valid client"
             )
-            require("lspconfig")[server_name].setup(server)
+
+            vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
+            local filetype = vim.bo[bufnr].filetype
+            require("plugins.lsp.keymaps").lsp(args)
+            if disable_semantic_tokens[filetype] then
+              client.server_capabilities.semanticTokensProvider = nil
+            end
           end,
-        },
-      })
-    end,
+        })
+      end,
+    },
   },
 
   -- format
