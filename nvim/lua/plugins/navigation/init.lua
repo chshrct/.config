@@ -85,7 +85,7 @@ return {
       table.insert(vimgrep_arguments, "--glob")
       table.insert(vimgrep_arguments, "!**/.git/*")
 
-      local trouble = require("trouble.providers.telescope")
+      local trouble = require("trouble.sources.telescope")
 
       return {
         pickers = {
@@ -136,14 +136,14 @@ return {
               ["<C-c>"] = actions.close,
               ["<C-n>"] = actions.cycle_history_next,
               ["<C-p>"] = actions.cycle_history_prev,
-              ["<C-t>"] = trouble.smart_open_with_trouble,
+              ["<C-t>"] = trouble.open,
             },
             i = {
               ["<C-j>"] = actions.move_selection_next,
               ["<C-k>"] = actions.move_selection_previous,
               ["<C-n>"] = actions.cycle_history_next,
               ["<C-p>"] = actions.cycle_history_prev,
-              ["<C-t>"] = trouble.smart_open_with_trouble,
+              ["<C-t>"] = trouble.open,
             },
           },
         },
