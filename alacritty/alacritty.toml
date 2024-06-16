@@ -5,11 +5,11 @@ opacity = 0.85
 dynamic_title = true
 
 [font]
-normal = { family = "Hack Nerd Font" }
-bold = { family = "Hack Nerd Font" }
-italic = { family = "Hack Nerd Font" }
-bold_italic = { family = "Hack Nerd Font" }
-size = 10
+normal = { family = "MesloLGS Nerd Font" }
+bold = { family = "MesloLGS Nerd Font" }
+italic = { family = "MesloLGS Nerd Font" }
+bold_italic = { family = "MesloLGS Nerd Font" }
+size = 9
 
 # Colors section of "Alacritty - TOML configuration file format"
 # https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
