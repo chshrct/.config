@@ -144,7 +144,6 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = true,
-    commit = "0b6ef80e052150391ded101a0a2720f24f5200e9",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       local conform = require("conform")
