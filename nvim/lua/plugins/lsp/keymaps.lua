@@ -16,25 +16,25 @@ M.lsp = function(event)
   vim.keymap.set(
     "n",
     "gd",
-    ":Trouble lsp_definitions<CR>",
+    ":Telescope lsp_definitions<CR>",
     { buffer = event.buf, desc = "lsp: [g]oto [d]efinition", silent = true }
   )
   vim.keymap.set(
     "n",
     "gr",
-    ":Trouble lsp_references<CR>",
+    ":Telescope lsp_references<CR>",
     { buffer = event.buf, desc = "lsp: [g]oto [r]eferences", silent = true }
   )
   vim.keymap.set(
     "n",
-    "gI",
-    ":Trouble lsp_implementations<CR>",
-    { buffer = event.buf, desc = "lsp: [g]oto [I]mplementation", silent = true }
+    "<leader>li",
+    ":Telescope lsp_implementations<CR>",
+    { buffer = event.buf, desc = "[l]sp: goto [i]mplementation", silent = true }
   )
   vim.keymap.set(
     "n",
-    "<leader>D",
-    ":Trouble lsp_type_definitions<CR>",
+    "<leader>lt",
+    ":Telescope lsp_type_definitions<CR>",
     { buffer = event.buf, desc = "lsp: type [D]efinition", silent = true }
   )
   vim.keymap.set("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", {
@@ -46,7 +46,7 @@ M.lsp = function(event)
     "n",
     "<leader>ws",
     ":Telescope lsp_dynamic_workspace_symbols<CR>",
-    { buffer = event.buf, desc = "lsp: [w]orkspace [S]ymbols", silent = true }
+    { buffer = event.buf, desc = "lsp: [w]orkspace [s]ymbols", silent = true }
   )
 
   -- See `:help K` for why this keymap
@@ -66,9 +66,9 @@ M.lsp = function(event)
   -- Lesser used LSP functionality
   vim.keymap.set(
     "n",
-    "gD",
+    "<leader>ld",
     vim.lsp.buf.declaration,
-    { buffer = event.buf, desc = "lsp: [g]oto [D]eclaration" }
+    { buffer = event.buf, desc = "[l]sp: goto [d]eclaration" }
   )
   vim.keymap.set(
     "n",

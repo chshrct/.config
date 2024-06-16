@@ -48,6 +48,14 @@ return {
           -- web
           cssls = true,
           html = true,
+          graphql = {
+            root_dir = require("lspconfig").util.root_pattern(
+              ".git",
+              ".graphqlrc*",
+              ".graphql.config.*",
+              "graphql.config.*"
+            ),
+          },
           cssmodules_ls = true,
           tailwindcss = true,
           eslint = true,
@@ -136,6 +144,7 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = true,
+    commit = "0b6ef80e052150391ded101a0a2720f24f5200e9",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       local conform = require("conform")
