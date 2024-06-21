@@ -48,14 +48,7 @@ return {
           -- web
           cssls = true,
           html = true,
-          graphql = {
-            root_dir = require("lspconfig").util.root_pattern(
-              ".git",
-              ".graphqlrc*",
-              ".graphql.config.*",
-              "graphql.config.*"
-            ),
-          },
+          graphql = true,
           cssmodules_ls = true,
           tailwindcss = true,
           eslint = true,
