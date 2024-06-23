@@ -16,25 +16,25 @@ M.lsp = function(event)
   vim.keymap.set(
     "n",
     "gd",
-    ":Telescope lsp_definitions<CR>",
+    ":Trouble lsp_definitions focus=true<CR>",
     { buffer = event.buf, desc = "lsp: [g]oto [d]efinition", silent = true }
   )
   vim.keymap.set(
     "n",
     "gr",
-    ":Telescope lsp_references<CR>",
+    ":Trouble lsp_references focus=true<CR>",
     { buffer = event.buf, desc = "lsp: [g]oto [r]eferences", silent = true }
   )
   vim.keymap.set(
     "n",
     "<leader>li",
-    ":Telescope lsp_implementations<CR>",
+    ":Trouble lsp_implementations focus=true<CR>",
     { buffer = event.buf, desc = "[l]sp: goto [i]mplementation", silent = true }
   )
   vim.keymap.set(
     "n",
     "<leader>lt",
-    ":Telescope lsp_type_definitions<CR>",
+    ":Trouble lsp_type_definitions focus=true<CR>",
     { buffer = event.buf, desc = "lsp: type [D]efinition", silent = true }
   )
   vim.keymap.set("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", {
