@@ -52,6 +52,7 @@ return {
           cssmodules_ls = true,
           tailwindcss = true,
           eslint = true,
+          emmet_language_server = true,
           -- Probably want to disable formatting for this lang server
           tsserver = true,
           -- configs
@@ -74,6 +75,7 @@ return {
               },
             },
           },
+          taplo = true,
           csharp_ls = true,
         }
 
