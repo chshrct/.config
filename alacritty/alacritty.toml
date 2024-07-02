@@ -1,4 +1,5 @@
-shell = "pwsh"
+[shell]
+program = "pwsh"
 
 [window]
 opacity = 0.9
