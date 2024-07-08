@@ -43,16 +43,16 @@ M.cmp = function(cmp, luasnip)
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
 
     -- snippet
-    ["<Tab>"] = cmp.mapping(function()
+    ["<C-l>"] = cmp.mapping(function()
       if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       end
     end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function()
-      if luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      end
-    end, { "i", "s" }),
+    -- ["<C-S-l>"] = cmp.mapping(function()
+    --   if luasnip.locally_jumpable(-1) then
+    --     luasnip.jump(-1)
+    --   end
+    -- end, { "i", "s" }),
   }
 end
 
