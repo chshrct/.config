@@ -1,3 +1,7 @@
+local function augroup(name)
+  return vim.api.nvim_create_augroup("autocommand_" .. name, { clear = true })
+end
+
 -- See `:help vim.highlight.on_yank()`
 local highlight_group =
   vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -54,9 +58,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  command = "checktime",
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("json_conceal"),
+  pattern = { "json", "jsonc", "json5" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
 })
 
 -- don't auto comment new line

@@ -29,12 +29,12 @@ opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 4 -- Lines of context
+opt.sidescrolloff = 8 -- Columns of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
@@ -54,17 +54,13 @@ opt.incsearch = true -- Highlight search on type
 opt.colorcolumn = "80" -- Indent for code length
 opt.listchars:append("eol:↴") -- Show end of line
 opt.pumblend = 0 -- kinda transparancy
-
-if vim.fn.has("nvim-0.9.0") == 1 then
-  opt.splitkeep = "screen"
-  opt.shortmess:append({ C = true })
-end
+opt.smoothscroll = true -- Smooth scroll
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
 -- diagnostic icons
-local icons = require("editor.icons").diagnostics
+local icons = require("settings.icons").diagnostics
 local signs = {
   Error = icons.Error,
   Warn = icons.Warn,
