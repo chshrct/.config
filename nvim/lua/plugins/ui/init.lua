@@ -60,6 +60,7 @@ return {
   -- terminal
   {
     "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
     version = "*",
     config = function()
       -- Terminal window mode mapping

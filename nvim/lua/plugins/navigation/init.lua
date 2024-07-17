@@ -167,6 +167,7 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    event = "VeryLazy",
     config = function()
       local harpoon = require("harpoon")
       harpoon:setup()
