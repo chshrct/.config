@@ -71,13 +71,8 @@ return {
 
   -- comments
   {
-    "numToStr/Comment.nvim",
+    "folke/ts-comments.nvim",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    keys = {
-      { "gc", mode = { "n", "v" }, desc = "line [c]omment" },
-      { "gcc", mode = { "n", "v" }, desc = "line [c]omment" },
-      { "gbc", mode = { "n", "v" }, desc = "[b]lock [c]omment" },
-    },
     opts = {},
   },
 
