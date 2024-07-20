@@ -37,7 +37,7 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        mapping = require("plugins.completion.keymaps").cmp(cmp, luasnip),
+        mapping = require("plugins.completion.keymaps").cmp(),
         sources = {
           { name = "nvim_lsp" },
           { name = "luasnip" },

@@ -1,6 +1,8 @@
 local M = {}
 
-M.cmp = function(cmp, luasnip)
+M.cmp = function()
+  local cmp = require("cmp")
+  local luasnip = require("luasnip")
   return {
     -- confirm selection
     ["<CR>"] = cmp.mapping({
@@ -43,16 +45,25 @@ M.cmp = function(cmp, luasnip)
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
 
     -- snippet
-    ["<C-l>"] = cmp.mapping(function()
-      if luasnip.expand_or_locally_jumpable() then
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      else
+        fallback()
       end
     end, { "i", "s" }),
-    -- ["<C-S-l>"] = cmp.mapping(function()
-    --   if luasnip.locally_jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   end
-    -- end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
   }
 end
 
