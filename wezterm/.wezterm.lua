@@ -15,6 +15,7 @@ config.font_size = 9
 
 -- cursor
 config.force_reverse_video_cursor = true
+config.window_decorations = "RESIZE"
 
 -- background
 config.window_background_opacity = 0.9
