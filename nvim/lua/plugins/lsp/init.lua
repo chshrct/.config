@@ -54,7 +54,7 @@ return {
           eslint = true,
           emmet_language_server = true,
           -- Probably want to disable formatting for this lang server
-          tsserver = true,
+          ts_ls = true,
           -- configs
           jsonls = {
             settings = {
