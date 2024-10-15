@@ -4,15 +4,28 @@ return {
     {
       "neovim/nvim-lspconfig",
       dependencies = {
-        "folke/neodev.nvim",
+        {
+          -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+          -- used for completion, annotations and signatures of Neovim apis
+          "folke/lazydev.nvim",
+          ft = "lua",
+          dependencies = {
+            { "Bilal2453/luvit-meta", lazy = true },
+          },
+          opts = {
+            library = {
+              -- Load luvit types when the `vim.uv` word is found
+              { path = "luvit-meta/library", words = { "vim%.uv" } },
+            },
+          },
+        },
+
+        -- tools installer
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
 
         { "j-hui/fidget.nvim", opts = {} },
-
-        -- Autoformatting
-        "stevearc/conform.nvim",
 
         -- Schema information
         "b0o/SchemaStore.nvim",
@@ -20,13 +33,6 @@ return {
       lazy = true,
       event = { "BufReadPost", "BufWritePost", "BufNewFile" },
       config = function()
-        require("neodev").setup({
-          -- library = {
-          --   plugins = { "nvim-dap-ui" },
-          --   types = true,
-          -- },
-        })
-
         -- hover round border
         local orig_util_open_floating_preview =
           vim.lsp.util.open_floating_preview
