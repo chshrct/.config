@@ -111,4 +111,15 @@ return {
       end, -- (fun(buf: integer): boolean) return false to disable attaching
     },
   },
+
+  -- markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    ft = "markdown",
+    opts = {},
+  },
 }
