@@ -57,36 +57,6 @@ return {
     },
   },
 
-  -- terminal
-  {
-    "akinsho/toggleterm.nvim",
-    event = "VeryLazy",
-    version = "*",
-    config = function()
-      -- Terminal window mode mapping
-      function _G.set_terminal_keymaps()
-        local opts =
-          { buffer = 0, desc = "Terminal windows mode", silent = true }
-        vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
-      end
-
-      -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-      vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-      require("toggleterm").setup({
-        open_mapping = [[<c-t>]],
-        size = function(term)
-          if term.direction == "horizontal" then
-            return 15
-          elseif term.direction == "vertical" then
-            return vim.o.columns * 0.4
-          end
-        end,
-        direction = "vertical",
-      })
-    end,
-  },
-
   -- dressing
   {
     "stevearc/dressing.nvim",
