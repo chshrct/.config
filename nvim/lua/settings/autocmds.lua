@@ -1,7 +1,3 @@
-local function augroup(name)
-  return vim.api.nvim_create_augroup("autocommand_" .. name, { clear = true })
-end
-
 -- See `:help vim.highlight.on_yank()`
 local highlight_group =
   vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -60,7 +56,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup("json_conceal"),
+  group = vim.api.nvim_create_augroup("json_conceal", { clear = true }),
   pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt_local.conceallevel = 0
