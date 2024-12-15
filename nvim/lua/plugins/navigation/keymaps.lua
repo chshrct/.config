@@ -16,61 +16,51 @@ M.nvimtree = {
 }
 
 M.telescope = function()
-  local builtin = require("telescope.builtin")
   return {
     -- files and strings
     {
       "<leader>sf",
-      builtin.find_files,
+      ":Telescope find_files<CR>",
       desc = "[s]earch [f]iles",
     },
     {
       "<leader>so",
-      builtin.oldfiles,
+      ":Telescope oldfiles<CR>",
       desc = "[s]earch [o]ld files",
     },
     {
       "<leader>sb",
-      builtin.buffers,
+      ":Telescope buffers<CR>",
       desc = "[s]earch [b]uffers",
     },
     {
       "<leader>sg",
-      builtin.git_files,
+      ":Telescope git_files<CR>",
       desc = "[s]earch [g]it files",
     },
     {
       "<leader>ss",
-      builtin.live_grep,
+      ":Telescope live_grep<CR>",
       desc = "[s]earch [s]tring",
     },
     {
       "<leader>sS",
-      function()
-        return builtin.live_grep({
-          prompt_title = "Live Grep(hidden/ignore)",
-          additional_args = { "--hidden", "--no-ignore" },
-        })
-      end,
+      ":Telescope live_grep additional_args={'--hidden','--no-ignore'}<CR>",
       desc = "[s]earch [S]tring hidden/ignore",
     },
     {
       "<leader>sw",
-      builtin.grep_string,
+      ":Telescope grep_string<CR>",
       desc = "[s]earch [w]ord under cursor",
     },
     {
       "<leader>sW",
-      function()
-        return builtin.grep_string({
-          additional_args = { "--hidden", "--no-ignore" },
-        })
-      end,
+      ":Telescope grep_string additional_args={'--hidden','--no-ignore'}<CR>",
       desc = "[s]earch [W]ord under cursor hidden/ignore",
     },
     {
       "<leader>/",
-      builtin.current_buffer_fuzzy_find,
+      ":Telescope current_buffer_fuzzy_find<CR>",
       silent = true,
       desc = "search fuzzy as [/]",
     },
@@ -78,31 +68,31 @@ M.telescope = function()
     -- utils
     {
       "<leader>sh",
-      builtin.help_tags,
+      ":Telescope help_tags<CR>",
       silent = true,
       desc = "[s]earch [h]elp",
     },
     {
       "<leader>sk",
-      builtin.keymaps,
+      ":Telescope keymaps<CR>",
       silent = true,
       desc = "[s]earch [k]eymaps",
     },
     {
       "<leader>sm",
-      builtin.marks,
+      ":Telescope marks<CR>",
       silent = true,
       desc = "[s]earch [m]arks",
     },
     {
       "<leader>sv",
-      builtin.vim_options,
+      ":Telescope vim_options<CR>",
       silent = true,
       desc = "[s]earch [v]im options",
     },
     {
       "<leader>sr",
-      builtin.registers,
+      ":Telescope registers<CR>",
       silent = true,
       desc = "[s]earch [r]egisters",
     },
@@ -110,19 +100,19 @@ M.telescope = function()
     -- git
     {
       "<leader>gl",
-      builtin.git_commits,
+      ":Telescope git_commits<CR>",
       silent = true,
       desc = "[g]it [l]og",
     },
     {
       "<leader>gb",
-      builtin.git_branches,
+      ":Telescope git_branches<CR>",
       silent = true,
       desc = "[g]it [b]ranch",
     },
     {
       "<leader>gs",
-      builtin.git_status,
+      ":Telescope git_status<CR>",
       silent = true,
       desc = "[g]it [s]tatus",
     },
