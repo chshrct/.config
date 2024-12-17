@@ -63,34 +63,41 @@ return {
     opts = {},
   },
 
-  -- context
+  -- a/i textobjects
   {
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    "echasnovski/mini.ai",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    opts = {
-      enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-      max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.
-      min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-      line_numbers = true,
-      multiline_threshold = 20, -- Maximum number of lines to show for a single context
-      trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-      mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-      -- Separator between context and content. Should be a single character string, like '-'.
-      -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-      separator = nil,
-      zindex = 20, -- The Z-index of the context window
-      on_attach = function()
-        vim.keymap.set("n", "<leader>cf", function()
-          require("treesitter-context").go_to_context()
-        end, { silent = true, desc = "[c]ontext [f]ocus" })
-        vim.keymap.set("n", "<leader>ct", function()
-          require("treesitter-context").toggle()
-        end, { silent = true, desc = "[c]ontext [t]oggle" })
-      end, -- (fun(buf: integer): boolean) return false to disable attaching
-    },
+    opts = function()
+      local ai = require("mini.ai")
+      return {
+        n_lines = 500,
+        custom_textobjects = {
+          o = ai.gen_spec.treesitter({ -- code block
+            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+          }),
+          f = ai.gen_spec.treesitter({
+            a = "@function.outer",
+            i = "@function.inner",
+          }), -- function
+          c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }), -- class
+          t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
+          d = { "%f[%d]%d+" }, -- digits
+          e = { -- Word with case
+            {
+              "%u[%l%d]+%f[^%l%d]",
+              "%f[%S][%l%d]+%f[^%l%d]",
+              "%f[%P][%l%d]+%f[^%l%d]",
+              "^[%l%d]+%f[^%l%d]",
+            },
+            "^().*()$",
+          },
+          u = ai.gen_spec.function_call(), -- u for "Usage"
+          U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
+        },
+      }
+    end,
   },
-
   -- markdown
   {
     "MeanderingProgrammer/render-markdown.nvim",
