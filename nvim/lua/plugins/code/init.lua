@@ -30,24 +30,6 @@ return {
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   },
 
-  -- indent guides
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    main = "ibl",
-    opts = {
-      indent = {
-        char = "┊",
-      },
-      exclude = {
-        filetypes = { "lazy" },
-      },
-      scope = {
-        enabled = false,
-      },
-    },
-  },
-
   -- comments
   {
     "folke/ts-comments.nvim",

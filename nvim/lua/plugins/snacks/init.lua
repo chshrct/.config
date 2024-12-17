@@ -8,5 +8,6 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    indent = { enabled = false },
   },
 }
