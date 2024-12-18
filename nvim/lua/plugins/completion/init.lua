@@ -105,7 +105,6 @@ return {
       dependencies = {
         { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
         { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-        { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
       },
       keys = {
         -- Toggle Copilot Chat Vsplit

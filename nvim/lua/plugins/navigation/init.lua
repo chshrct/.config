@@ -63,107 +63,117 @@ return {
     },
   },
 
-  -- telescope
+  -- fzf-lua
   {
-    "nvim-telescope/telescope.nvim",
-    version = false,
-    cmd = "Telescope",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
-    },
-    keys = require("plugins.navigation.keymaps").telescope,
-    opts = function()
-      local actions = require("telescope.actions")
-      local telescopeConfig = require("telescope.config")
-      local vimgrep_arguments =
-        { unpack(telescopeConfig.values.vimgrep_arguments) }
-      -- I don't want to search in the `.git` directory.
-      table.insert(vimgrep_arguments, "--glob")
-      table.insert(vimgrep_arguments, "!**/.git/*")
-
-      local trouble = require("trouble.sources.telescope")
-
-      return {
-        pickers = {
-          find_files = {
-            find_command = {
-              "fd",
-              "--type",
-              "file",
-              "--hidden",
-              "--no-ignore",
-              "--exclude",
-              "**/.git/*",
-            },
-          },
-          buffers = {
-            mappings = {
-              n = {
-                ["<C-d>"] = actions.delete_buffer,
-              },
-              i = {
-                ["<C-d>"] = actions.delete_buffer,
-              },
-            },
-          },
-          marks = {
-            mappings = {
-              n = {
-                ["<C-d>"] = actions.delete_mark,
-              },
-              i = {
-                ["<C-d>"] = actions.delete_mark,
-              },
-            },
-          },
-        },
-        defaults = {
-          -- `hidden = true` is not supported in text grep commands.
-          vimgrep_arguments = vimgrep_arguments,
-          path_display = { "truncate" },
-          prompt_prefix = "   ",
-          selection_caret = " ",
-          sorting_strategy = "ascending",
-          layout_config = {
-            horizontal = {
-              prompt_position = "top",
-            },
-          },
-          file_ignore_patterns = { "node_modules" },
-          extensions = {
-            fzf = {},
-          },
-          preview = {
-            filesize_limit = 0.3,
-          },
-          mappings = {
-            n = {
-              ["Esc"] = actions.close,
-              ["<C-c>"] = actions.close,
-              ["<C-n>"] = actions.cycle_history_next,
-              ["<C-p>"] = actions.cycle_history_prev,
-              ["<C-t>"] = trouble.open,
-            },
-            i = {
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-n>"] = actions.cycle_history_next,
-              ["<C-p>"] = actions.cycle_history_prev,
-              ["<C-t>"] = trouble.open,
-            },
-          },
-        },
-      }
-    end,
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension("fzf")
-    end,
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "FzfLua",
+    keys = require("plugins.navigation.keymaps").fzf,
+    opts = {},
   },
+
+  -- telescope
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   version = false,
+  --   cmd = "Telescope",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     {
+  --       "nvim-telescope/telescope-fzf-native.nvim",
+  --       build = "make",
+  --     },
+  --   },
+  --   keys = require("plugins.navigation.keymaps").telescope,
+  --   opts = function()
+  --     local actions = require("telescope.actions")
+  --     local telescopeConfig = require("telescope.config")
+  --     local vimgrep_arguments =
+  --       { unpack(telescopeConfig.values.vimgrep_arguments) }
+  --     -- I don't want to search in the `.git` directory.
+  --     table.insert(vimgrep_arguments, "--glob")
+  --     table.insert(vimgrep_arguments, "!**/.git/*")
+  --
+  --     local trouble = require("trouble.sources.telescope")
+  --
+  --     return {
+  --       pickers = {
+  --         find_files = {
+  --           find_command = {
+  --             "fd",
+  --             "--type",
+  --             "file",
+  --             "--hidden",
+  --             "--no-ignore",
+  --             "--exclude",
+  --             "**/.git/*",
+  --           },
+  --         },
+  --         buffers = {
+  --           mappings = {
+  --             n = {
+  --               ["<C-d>"] = actions.delete_buffer,
+  --             },
+  --             i = {
+  --               ["<C-d>"] = actions.delete_buffer,
+  --             },
+  --           },
+  --         },
+  --         marks = {
+  --           mappings = {
+  --             n = {
+  --               ["<C-d>"] = actions.delete_mark,
+  --             },
+  --             i = {
+  --               ["<C-d>"] = actions.delete_mark,
+  --             },
+  --           },
+  --         },
+  --       },
+  --       defaults = {
+  --         -- `hidden = true` is not supported in text grep commands.
+  --         vimgrep_arguments = vimgrep_arguments,
+  --         path_display = { "truncate" },
+  --         prompt_prefix = "   ",
+  --         selection_caret = " ",
+  --         sorting_strategy = "ascending",
+  --         layout_config = {
+  --           horizontal = {
+  --             prompt_position = "top",
+  --           },
+  --         },
+  --         file_ignore_patterns = { "node_modules" },
+  --         extensions = {
+  --           fzf = {},
+  --         },
+  --         preview = {
+  --           filesize_limit = 0.3,
+  --         },
+  --         mappings = {
+  --           n = {
+  --             ["Esc"] = actions.close,
+  --             ["<C-c>"] = actions.close,
+  --             ["<C-n>"] = actions.cycle_history_next,
+  --             ["<C-p>"] = actions.cycle_history_prev,
+  --             ["<C-t>"] = trouble.open,
+  --           },
+  --           i = {
+  --             ["<C-j>"] = actions.move_selection_next,
+  --             ["<C-k>"] = actions.move_selection_previous,
+  --             ["<C-n>"] = actions.cycle_history_next,
+  --             ["<C-p>"] = actions.cycle_history_prev,
+  --             ["<C-t>"] = trouble.open,
+  --           },
+  --         },
+  --       },
+  --     }
+  --   end,
+  --   config = function(_, opts)
+  --     require("telescope").setup(opts)
+  --     require("telescope").load_extension("fzf")
+  --   end,
+  -- },
+
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
