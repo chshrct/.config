@@ -17,9 +17,8 @@ config.default_prog = { "pwsh", "-NoLogo" }
 config.color_scheme = "rose-pine-moon"
 
 -- font
-config.font = wezterm.font("MesloLGS Nerd Font")
-config.font_size = 9
-config.cell_width = 0.9
+config.font = wezterm.font("Hack Nerd Font")
+config.font_size = 10
 
 -- cursor
 config.force_reverse_video_cursor = true
