@@ -36,6 +36,14 @@ config.hide_tab_bar_if_only_one_tab = true
 -- keymaps
 config.keys = {
 	{
+		key = " ",
+		mods = "CTRL",
+		action = act.SendKey({
+			key = " ",
+			mods = "CTRL",
+		}),
+	},
+	{
 		key = "h",
 		mods = "CTRL|SHIFT|ALT",
 		action = wezterm.action.SplitPane({
