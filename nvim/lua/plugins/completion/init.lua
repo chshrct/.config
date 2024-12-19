@@ -3,7 +3,9 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = "rafamadriz/friendly-snippets",
-    version = "v0.*",
+    version = false,
+    event = { "InsertEnter", "CmdlineEnter" },
+    build = "cargo build --release",
     opts = {
       keymap = {
         preset = "enter",
@@ -37,6 +39,9 @@ return {
           },
           auto_show = true,
           auto_show_delay_ms = 200,
+        },
+        list = {
+          selection = "manual",
         },
       },
     },
