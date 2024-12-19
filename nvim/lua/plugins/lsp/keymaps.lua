@@ -37,7 +37,7 @@ M.lsp = function(event)
     ":Trouble lsp_type_definitions focus=true<CR>",
     { buffer = event.buf, desc = "lsp: type [D]efinition", silent = true }
   )
-  vim.keymap.set("n", "<leader>ds", ":Telescope lsp_document_symbols<CR>", {
+  vim.keymap.set("n", "<leader>ds", ":FzfLua lsp_document_symbols<CR>", {
     buffer = event.buf,
     desc = "lsp: [d]ocument [s]ymbols",
     silent = true,
@@ -45,7 +45,7 @@ M.lsp = function(event)
   vim.keymap.set(
     "n",
     "<leader>ws",
-    ":Telescope lsp_dynamic_workspace_symbols<CR>",
+    ":FzfLua lsp_live_workspace_symbols<CR>",
     { buffer = event.buf, desc = "lsp: [w]orkspace [s]ymbols", silent = true }
   )
 
