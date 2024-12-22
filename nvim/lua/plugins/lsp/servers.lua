@@ -36,7 +36,7 @@ M.servers = {
   eslint = {},
   emmet_language_server = {},
   -- Probably want to disable formatting for this lang server
-  vts_ls = {},
+  vtsls = {},
   -- configs
   jsonls = {
     settings = {
