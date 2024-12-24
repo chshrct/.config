@@ -49,11 +49,13 @@ M = {
   },
 
   {
-    "<leader>cR",
+    "<leader>lR",
     function()
       Snacks.rename.rename_file()
     end,
     desc = "Rename File",
   },
+  { "<leader>n",  function() Snacks.scratch() end,        desc = "[n]otes" },
+  { "<leader>sn", function() Snacks.scratch.select() end, desc = "[s]earch [n]otes" },
 }
 return M
