@@ -12,6 +12,11 @@ return {
         ["<C-y>"] = { "select_and_accept" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
+        cmdline = {
+          preset = "enter",
+          ["<C-k>"] = { "select_prev", "fallback" },
+          ["<C-j>"] = { "select_next", "fallback" },
+        },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -37,11 +42,11 @@ return {
           window = {
             border = "rounded",
           },
-          auto_show = true,
-          auto_show_delay_ms = 200,
         },
         list = {
-          selection = "manual",
+          selection = function(ctx)
+            return ctx.mode == "cmdline" and "manual" or "preselect"
+          end,
         },
       },
     },
