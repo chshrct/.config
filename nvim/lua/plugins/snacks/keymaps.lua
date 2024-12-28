@@ -55,7 +55,19 @@ M = {
     end,
     desc = "Rename File",
   },
-  { "<leader>n",  function() Snacks.scratch() end,        desc = "[n]otes" },
-  { "<leader>sn", function() Snacks.scratch.select() end, desc = "[s]earch [n]otes" },
+  {
+    "<leader>n",
+    function()
+      Snacks.scratch()
+    end,
+    desc = "[n]otes",
+  },
+  {
+    "<leader>sn",
+    function()
+      Snacks.scratch.select()
+    end,
+    desc = "[s]earch [n]otes",
+  },
 }
 return M
