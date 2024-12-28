@@ -8,8 +8,9 @@ return {
     build = "cargo build --release",
     opts = {
       keymap = {
-        preset = "enter",
-        ["<C-y>"] = { "select_and_accept" },
+        preset = "super-tab",
+        ["<CR>"] = { "select_and_accept", "fallback" },
+        ["<C-y>"] = { "select_and_accept", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
         cmdline = {
@@ -27,6 +28,9 @@ return {
       },
       signature = { enabled = true },
       completion = {
+        -- ghost_text = {
+        --   enabled = true,
+        -- },
         accept = {
           auto_brackets = {
             enabled = true,
@@ -37,6 +41,9 @@ return {
           draw = {
             treesitter = { "lsp" },
           },
+          -- auto_show = function(ctx)
+          --   return ctx.mode == "cmdline" and true or false
+          -- end,
         },
         documentation = {
           window = {
