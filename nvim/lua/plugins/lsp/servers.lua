@@ -35,8 +35,38 @@ M.servers = {
   tailwindcss = {},
   eslint = {},
   emmet_language_server = {},
-  -- Probably want to disable formatting for this lang server
-  vtsls = {},
+  vtsls = {
+    -- explicitly add default filetypes, so that we can extend
+    -- them in related extras
+    settings = {
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          maxInlayHintLength = 30,
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
+    },
+  },
+
   -- configs
   jsonls = {
     settings = {
