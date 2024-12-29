@@ -14,19 +14,21 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "-" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-        untracked = { text = "│" },
-      },
-      on_attach = function(_)
-        require("plugins.git.keymaps").gitsigns()
-      end,
-    },
+    opts = function()
+      local gitIcons = require("settings.icons").git
+      return {
+        signs = {
+          add = { text = gitIcons.LineAdded },
+          change = { text = gitIcons.LineModified },
+          delete = { text = gitIcons.LineRemoved },
+          topdelete = { text = gitIcons.LineRemoved },
+          changedelete = { text = gitIcons.LineModified },
+        },
+        on_attach = function(_)
+          require("plugins.git.keymaps").gitsigns()
+        end,
+      }
+    end,
   },
 
   -- git blame

@@ -51,7 +51,7 @@ M.gitsigns = function(buffer)
   vim.keymap.set(
     "n",
     "<leader>hp",
-    gs.preview_hunk_inline,
+    gs.preview_hunk,
     { buffer = buffer, desc = "[h]unk preview" }
   )
   vim.keymap.set("n", "<leader>hd", function()

@@ -12,49 +12,62 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     },
-    opts = {
-      options = {
-        globalstatus = true,
-        disabled_filetypes = { statusline = { "lazy" } },
-        icons_enabled = true,
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = {
-          {
-            "filetype",
-            icon_only = true,
-            separator = "",
-            padding = { left = 1, right = 0 },
+    opts = function()
+      local gitIcons = require("settings.icons").git
+      return {
+        options = {
+          globalstatus = true,
+          icons_enabled = true,
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {
+            "branch",
+            {
+              "diff",
+              symbols = {
+                added = gitIcons.LineAdded .. " ",
+                modified = gitIcons.LineModified .. " ",
+                removed = gitIcons.LineRemoved .. " ",
+              },
+            },
+            "diagnostics",
           },
-          {
-            "filename",
-            path = 1,
-            symbols = { modified = "  ", readonly = "", unnamed = "" },
+          lualine_c = {
+            {
+              "filetype",
+              icon_only = true,
+              separator = "",
+              padding = { left = 1, right = 0 },
+            },
+            {
+              "filename",
+              path = 1,
+              symbols = { modified = "  ", readonly = "", unnamed = "" },
+            },
+          },
+          lualine_x = {
+            "encoding",
+            {
+              "fileformat",
+            },
+          },
+          lualine_y = {
+            {
+              "progress",
+              separator = "|",
+            },
+            { "location", padding = { left = 0, right = 1 } },
+          },
+          lualine_z = {
+            function()
+              return " " .. " " .. os.date("%R")
+            end,
           },
         },
-        lualine_x = {
-          "encoding",
-          {
-            "fileformat",
-          },
-        },
-        lualine_y = {
-          {
-            "progress",
-            separator = "|",
-          },
-          { "location", padding = { left = 0, right = 1 } },
-        },
-        lualine_z = {
-          function()
-            return " " .. os.date("%R")
-          end,
-        },
-      },
-      extensions = { "neo-tree" },
-    },
+        extensions = { "nvim-tree", "mason", "fzf", "lazy", "quickfix" },
+      }
+    end,
   },
 
   -- dressing
