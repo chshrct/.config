@@ -36,6 +36,32 @@ M.servers = {
   eslint = {},
   emmet_language_server = {},
   vtsls = {
+    on_attach = function(client, bufnr)
+      vim.keymap.set("n", "<leader>lio", function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = {
+            only = { "source.organizeImports" },
+          },
+        })
+      end, { buffer = bufnr, desc = "[l]sp [i]mports [o]rganize" })
+      vim.keymap.set("n", "<leader>lia", function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = {
+            only = { "source.addMissingImports" },
+          },
+        })
+      end, { buffer = bufnr, desc = "[l]sp [i]mports [a]dd" })
+      vim.keymap.set("n", "<leader>lF", function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = {
+            only = { "source.fixAll" },
+          },
+        })
+      end, { buffer = bufnr, desc = "[l]sp [F]ix all" })
+    end,
     -- explicitly add default filetypes, so that we can extend
     -- them in related extras
     settings = {
