@@ -66,7 +66,6 @@ return {
   -- fzf-lua
   {
     "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "FzfLua",
     keys = require("plugins.navigation.keymaps").fzf,
     opts = {},
