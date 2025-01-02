@@ -21,19 +21,6 @@ return {
           local theme = colors.theme
           local palette = colors.palette
           return {
-
-            -- telescope
-            TelescopeTitle = { fg = theme.ui.special, bold = true },
-            TelescopePromptNormal = { bg = "none" },
-            TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = "none" },
-            TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = "none" },
-            TelescopeResultsBorder = { fg = theme.ui.bg_p1, bg = "none" },
-            TelescopePreviewNormal = { bg = "none" },
-            TelescopePreviewBorder = {
-              bg = "none",
-              fg = theme.ui.bg_p1,
-            },
-
             -- popup menu
             Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
             PmenuSel = { fg = "None", bg = theme.ui.bg_p2 },
@@ -122,9 +109,6 @@ return {
           Directory = { fg = "foam", bg = "none" },
           WinSeparator = { fg = "highlight_high", bg = "none" },
 
-          -- telescope
-          TelescopeTitle = { fg = "foam", bg = "none" },
-
           -- numbers
           CursorLineNr = { fg = "gold" },
 
@@ -196,10 +180,6 @@ return {
           semantic_tokens = true,
           treesitter_context = true,
           rainbow_delimiters = true,
-          telescope = {
-            enabled = true,
-            style = "nvchad",
-          },
           lsp_trouble = true,
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
