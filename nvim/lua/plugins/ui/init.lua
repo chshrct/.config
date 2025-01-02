@@ -26,6 +26,7 @@ return {
     event = "VeryLazy",
     opts = function()
       local gitIcons = require("settings.icons").git
+      local diagnosticsIcons = require("settings.icons").diagnostics
       return {
         options = {
           globalstatus = true,
@@ -43,7 +44,16 @@ return {
                 removed = gitIcons.LineRemoved .. " ",
               },
             },
-            "diagnostics",
+            {
+
+              "diagnostics",
+              symbols = {
+                error = diagnosticsIcons.Error,
+                warn = diagnosticsIcons.Warn,
+                info = diagnosticsIcons.Info,
+                hint = diagnosticsIcons.Hint,
+              },
+            },
           },
           lualine_c = {
             {

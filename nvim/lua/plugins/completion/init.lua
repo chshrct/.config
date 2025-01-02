@@ -24,9 +24,22 @@ return {
         nerd_font_variant = "normal",
       },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
+          },
+        },
       },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = {
+          border = "rounded",
+        },
+      },
       completion = {
         -- ghost_text = {
         --   enabled = true,
@@ -40,6 +53,16 @@ return {
           border = "rounded",
           draw = {
             treesitter = { "lsp" },
+            components = {
+              kind_icon = {
+                ellipsis = false,
+                text = function(ctx)
+                  local kind_icon, _, _ =
+                    require("mini.icons").get("lsp", ctx.kind)
+                  return kind_icon
+                end,
+              },
+            },
           },
           -- auto_show = function(ctx)
           --   return ctx.mode == "cmdline" and true or false
