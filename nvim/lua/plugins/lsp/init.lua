@@ -7,7 +7,7 @@ return {
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "snacks.nvim",        words = { "Snacks" } },
       },
     },
   },
@@ -35,6 +35,31 @@ return {
       cmd = { "LspInfo", "LspInstall", "LspStart" },
       event = { "BufReadPre", "BufNewFile" },
       config = function()
+        -- Настройка диагностики
+        vim.diagnostic.config({
+          virtual_text = {
+            spacing = 4,
+            source = "if_many",
+            prefix = "●",
+            severity_sort = true,
+          },
+          float = {
+            severity_sort = true,
+            source = 'if_many',
+            border = "rounded",
+          },
+          severity_sort = true,
+          underline = true,
+          update_in_insert = false
+        })
+
+        -- border
+        vim.lsp.handlers["textDocument/hover"] =
+            vim.lsp.with(vim.lsp.handlers.hover, {
+              border = "rounded",
+              focusable = true,
+            })
+
         vim.api.nvim_create_autocmd("LspAttach", {
           group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
           callback = function(event)
@@ -44,10 +69,10 @@ return {
 
             -- inlay hints toggle
             if
-              client
-              and client.supports_method(
-                vim.lsp.protocol.Methods.textDocument_inlayHint
-              )
+                client
+                and client.supports_method(
+                  vim.lsp.protocol.Methods.textDocument_inlayHint
+                )
             then
               vim.keymap.set("n", "<leader>tH", function()
                 vim.lsp.inlay_hint.enable(
@@ -60,13 +85,6 @@ return {
             end
           end,
         })
-
-        -- border
-        vim.lsp.handlers["textDocument/hover"] =
-          vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-            focusable = true,
-          })
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend(
