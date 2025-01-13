@@ -91,7 +91,7 @@ return {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = true,
     cmd = "Copilot",
     event = { "InsertEnter" },
     config = function()
@@ -280,6 +280,12 @@ return {
     version = false, -- set this if you want to always pull the latest change
     opts = {
       -- add any opts here
+      provider = "copilot",
+      model = "claude",
+      copilot = {
+        endpoint = "https://api.githubcopilot.com/",
+        model = "claude-3.5-sonnet",
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     -- build = "make",
