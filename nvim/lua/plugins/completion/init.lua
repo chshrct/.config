@@ -58,7 +58,7 @@ return {
                 ellipsis = false,
                 text = function(ctx)
                   local kind_icon, _, _ =
-                    require("mini.icons").get("lsp", ctx.kind)
+                      require("mini.icons").get("lsp", ctx.kind)
                   return kind_icon
                 end,
               },
@@ -74,9 +74,12 @@ return {
           },
         },
         list = {
-          selection = function(ctx)
-            return ctx.mode == "cmdline" and "manual" or "preselect"
-          end,
+          selection = {
+            preselect = function(ctx)
+              return ctx.mode ~= "cmdline"
+            end,
+            auto_insert = true,
+          },
         },
       },
     },
@@ -108,7 +111,7 @@ return {
       enabled = false,
       dependencies = {
         { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-        { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+        { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
       },
       keys = {
         -- Toggle Copilot Chat Vsplit
@@ -268,6 +271,7 @@ return {
       })
     end,
   },
+
   -- avante(Claude model)
   {
     "yetone/avante.nvim",
