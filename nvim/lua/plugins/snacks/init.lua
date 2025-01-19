@@ -4,15 +4,16 @@ return {
   lazy = false,
   keys = require("plugins.snacks.keymaps"),
   opts = {
-    bigfile = { enabled = true },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+    bigfile = {},
+    quickfile = {},
+    statuscolumn = {},
+    words = {},
     indent = { enabled = false },
     scroll = { enabled = false },
     scratch = {
       name = "Notes",
       ft = "markdown",
     },
+    picker = {}
   },
 }

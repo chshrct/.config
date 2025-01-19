@@ -1,26 +1,10 @@
 local M = {}
 
 M.trouble = {
-  {
-    "<leader>ed",
-    "<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>",
-    desc = "lsp: [e]rrors [d]ocument",
-  },
-  {
-    "<leader>ew",
-    "<cmd>Trouble diagnostics toggle focus=true<cr>",
-    desc = "lsp: [e]rrors [w]orkspace",
-  },
-  {
-    "<leader>lt",
-    "<cmd>Trouble loclist toggle focus=true<cr>",
-    desc = "[l]oclist [t]oggle",
-  },
-  {
-    "<leader>qt",
-    "<cmd>Trouble qflist toggle focus=true<cr>",
-    desc = "[q]uickfixlist [t]oggle",
-  },
+  { "<leader>ed", "<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>", desc = "lsp: [e]rrors [d]ocument", },
+  { "<leader>ew", "<cmd>Trouble diagnostics toggle focus=true<cr>",              desc = "lsp: [e]rrors [w]orkspace", },
+  { "<leader>lt", "<cmd>Trouble loclist toggle focus=true<cr>",                  desc = "[l]oclist [t]oggle", },
+  { "<leader>qt", "<cmd>Trouble qflist toggle focus=true<cr>",                   desc = "[q]uickfixlist [t]oggle", },
   {
     "[q",
     function()

@@ -88,7 +88,7 @@ return {
         local rhs = function()
           local new_target_window
           local cur_target_window =
-            require("mini.files").get_explorer_state().target_window
+              require("mini.files").get_explorer_state().target_window
           if cur_target_window ~= nil then
             vim.api.nvim_win_call(cur_target_window, function()
               vim.cmd("belowright " .. direction .. " split")
@@ -173,6 +173,7 @@ return {
   -- fzf-lua
   {
     "ibhagwan/fzf-lua",
+    enabled = false,
     cmd = "FzfLua",
     keys = require("plugins.navigation.keymaps").fzf,
     opts = {},
