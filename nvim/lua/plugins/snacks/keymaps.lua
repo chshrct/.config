@@ -33,7 +33,6 @@ M = {
   { "<leader>sM", function() Snacks.picker.man() end,                                     desc = "[s]earch [M]an pages" },
   { "<leader>sR", function() Snacks.picker.resume() end,                                  desc = "[s]earch [r]esume" },
   { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "[s]earch [q]uickfix list" },
-  { "<leader>sC", function() Snacks.picker.colorschemes() end,                            desc = "[s]earch [C]olorschemes" },
   -- git
   { "<leader>gl", function() Snacks.picker.git_log() end,                                 desc = "[g]it [l]og" },
   { "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "[g]it [s]tatus" },

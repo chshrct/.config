@@ -10,6 +10,7 @@ return {
     words = {},
     indent = { enabled = false },
     scroll = { enabled = false },
+    notifier = { enabled = false },
     input = {},
     scratch = {
       name = "Notes",

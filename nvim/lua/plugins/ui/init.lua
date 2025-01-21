@@ -97,13 +97,11 @@ return {
     "kosayoda/nvim-lightbulb",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = { "antoinemadec/FixCursorHold.nvim" },
-    config = function()
-      require("nvim-lightbulb").setup({
-        autocmd = { enabled = true },
-        sign = { enabled = false },
-        virtual_text = { enabled = true },
-      })
-    end,
+    opts = {
+      autocmd = { enabled = true },
+      sign = { enabled = false },
+      virtual_text = { enabled = true },
+    }
   },
 
   -- better diagnostics list and others
