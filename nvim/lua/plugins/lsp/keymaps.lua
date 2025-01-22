@@ -11,9 +11,9 @@ M.lsp = function(event)
     { buffer = event.buf, desc = "[l]sp: goto [i]mplementation", silent = true })
   vim.keymap.set("n", "<leader>lt", ":Trouble lsp_type_definitions focus=true<CR>",
     { buffer = event.buf, desc = "lsp: type [D]efinition", silent = true })
-  vim.keymap.set("n", "<leader>ds", ":FzfLua lsp_document_symbols<CR>",
+  vim.keymap.set("n", "<leader>ds", Snacks.picker.lsp_symbols,
     { buffer = event.buf, desc = "lsp: [d]ocument [s]ymbols", silent = true, })
-  vim.keymap.set("n", "<leader>ws", ":FzfLua lsp_live_workspace_symbols<CR>",
+  vim.keymap.set("n", "<leader>ws", Snacks.picker.lsp_workspace_symbols,
     { buffer = event.buf, desc = "lsp: [w]orkspace [s]ymbols", silent = true })
 
   -- See `:help K` for why this keymap
