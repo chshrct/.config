@@ -1,13 +1,14 @@
 local M
 
 M = {
-  { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "Delete Buffer", },
-  { "<C-t>",      function() Snacks.terminal() end,                                       desc = "Toggle Terminal", },
-  { "]]",         function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",              mode = { "n", "t" }, },
-  { "[[",         function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",              mode = { "n", "t" }, },
-  { "<leader>z",  function() Snacks.zen() end,                                            desc = "Toggle Zen Mode", },
-  { "<leader>Z",  function() Snacks.zen.zoom() end,                                       desc = "Toggle Zoom", },
-  { "<leader>lR", function() Snacks.rename.rename_file() end,                             desc = "Rename File", },
+  { "<leader>x",  function() Snacks.explorer() end,                                       desc = "file e[x]plorer" },
+  { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "[b]uffer [d]elete", },
+  { "<C-t>",      function() Snacks.terminal() end,                                       desc = "toggle [t]erminal", },
+  { "]]",         function() Snacks.words.jump(vim.v.count1) end,                         desc = "next reference",              mode = { "n", "t" }, },
+  { "[[",         function() Snacks.words.jump(-vim.v.count1) end,                        desc = "prev reference",              mode = { "n", "t" }, },
+  { "<leader>z",  function() Snacks.zen() end,                                            desc = "toggle [z]en mode", },
+  { "<leader>Z",  function() Snacks.zen.zoom() end,                                       desc = "toggle [Z]oom", },
+  { "<leader>lR", function() Snacks.rename.rename_file() end,                             desc = "[R]ename file", },
   { "<leader>n",  function() Snacks.scratch() end,                                        desc = "[n]otes", },
   { "<leader>sn", function() Snacks.scratch.select() end,                                 desc = "[s]earch [n]otes", },
 

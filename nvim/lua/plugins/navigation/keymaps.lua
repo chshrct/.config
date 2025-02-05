@@ -1,10 +1,5 @@
 local M = {}
 
-M.nvimtree = {
-  { "<leader>xf", ":NvimTreeFocus<CR>",  desc = "e[x]plore [f]ocus",  silent = true, },
-  { "<leader>xt", ":NvimTreeToggle<CR>", desc = "e[x]plore [t]oggle", silent = true, },
-}
-
 M.minifiles = {
   { "<leader>m", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "[m]ini files (Current file directory)", },
   { "<leader>M", function() require("mini.files").open(vim.uv.cwd(), true) end,                 desc = "[M]ini files (Current working directory)", },

@@ -7,6 +7,7 @@ return {
     bigfile = {},
     quickfile = {},
     statuscolumn = {},
+    explorer = {},
     words = {},
     indent = { enabled = false },
     scroll = { enabled = false },
@@ -16,6 +17,16 @@ return {
       name = "Notes",
       ft = "markdown",
     },
-    picker = {}
+    picker = {
+      sources = {
+        explorer = {
+          layout = {
+            layout = {
+              position = "right"
+            }
+          }
+        }
+      }
+    }
   },
 }

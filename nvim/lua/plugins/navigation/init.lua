@@ -1,56 +1,5 @@
 return {
 
-  -- neotree
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    keys = require("plugins.navigation.keymaps").nvimtree,
-    opts = {
-      filters = {
-        dotfiles = false,
-        exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
-      },
-      disable_netrw = true,
-      hijack_netrw = true,
-      hijack_cursor = true,
-      hijack_unnamed_buffer_when_opening = false,
-      sync_root_with_cwd = true,
-      update_focused_file = {
-        enable = true,
-        update_root = false,
-      },
-      view = {
-        adaptive_size = true,
-        side = "right",
-        width = 40,
-        preserve_window_proportions = true,
-      },
-      actions = {
-        open_file = {
-          resize_window = true,
-        },
-      },
-      renderer = {
-        root_folder_label = false,
-        highlight_git = "none",
-        highlight_opened_files = "none",
-
-        indent_markers = {
-          enable = true,
-        },
-        icons = {
-          git_placement = "after",
-          show = {
-            file = true,
-            folder = true,
-            folder_arrow = false,
-            git = true,
-          },
-        },
-      },
-    },
-  },
-
   -- mini files
   {
     "echasnovski/mini.files",
@@ -179,6 +128,7 @@ return {
     opts = {},
   },
 
+  -- harpoon
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
