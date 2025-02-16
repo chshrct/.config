@@ -6,6 +6,8 @@ return {
     version = false,
     event = { "InsertEnter", "CmdlineEnter" },
     build = "cargo build --release",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       keymap = {
         preset = "super-tab",
@@ -13,11 +15,13 @@ return {
         ["<C-y>"] = { "select_and_accept", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
-        cmdline = {
+      },
+      cmdline = {
+        keymap = {
           preset = "enter",
           ["<C-k>"] = { "select_prev", "fallback" },
           ["<C-j>"] = { "select_next", "fallback" },
-        },
+        }
       },
       appearance = {
         use_nvim_cmp_as_default = true,
