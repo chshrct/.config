@@ -5,7 +5,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "Issafalcon/neotest-dotnet",
     },
     opts = {
       -- Can be a list of adapters like what neotest expects,
@@ -13,7 +12,6 @@ return {
       -- or a table of adapter names, mapped to adapter configs.
       -- The adapter will then be automatically loaded with the config.
       adapters = {
-        "neotest-dotnet",
       },
       loglevel = 1,
       -- Example for loading neotest-go with a custom config
@@ -32,10 +30,10 @@ return {
           format = function(diagnostic)
             -- Replace newline and tab characters with space for more compact diagnostics
             local message = diagnostic.message
-              :gsub("\n", " ")
-              :gsub("\t", " ")
-              :gsub("%s+", " ")
-              :gsub("^%s+", "")
+                :gsub("\n", " ")
+                :gsub("\t", " ")
+                :gsub("%s+", " ")
+                :gsub("^%s+", "")
             return message
           end,
         },

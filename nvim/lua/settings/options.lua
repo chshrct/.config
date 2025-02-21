@@ -56,28 +56,24 @@ opt.smoothscroll = true -- Smooth scroll
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
--- diagnostic icons
-local icons = require("settings.icons").diagnostics
-local signs = {
-  Error = icons.Error,
-  Warn = icons.Warn,
-  Hint = icons.Hint,
-  Info = icons.Info,
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 -- diagnostic config
+local icons = require("settings.icons").diagnostics
 vim.diagnostic.config({
   severity_sort = true,
   virtual_lines = true,
   float = { border = "rounded" },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.Error,
+      [vim.diagnostic.severity.WARN] = icons.Warn,
+      [vim.diagnostic.severity.HINT] = icons.Hint,
+      [vim.diagnostic.severity.INFO] = icons.Info,
+    }
+  }
 })
 
 -- powershell windows
-if vim.loop.os_uname().sysname == "Windows_NT" then
+if vim.fn.has('win32') == 1 then
   local powershell_options = {
     shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
     shellcmdflag = "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -Command ",
