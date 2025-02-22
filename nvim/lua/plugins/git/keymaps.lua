@@ -14,11 +14,10 @@ M.gitsigns = function(buffer)
   vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, { buffer = buffer, desc = "[h]unk [u]nstage" })
   vim.keymap.set("n", "<leader>hR", gs.reset_buffer, { buffer = buffer, desc = "[h]unk [R]eset buffer" })
   vim.keymap.set("n", "<leader>hp", gs.preview_hunk, { buffer = buffer, desc = "[h]unk preview" })
-  vim.keymap.set("n", "<leader>hd", function()
-    vim.ui.input({ prompt = "Diff against" }, function(input)
-      vim.cmd("Gitsigns diffthis " .. input .. " split=botright")
-    end, { buffer = buffer, desc = "[h]unk diff" })
-  end)
+  vim.keymap.set("n", "<leader>hd",
+    function() vim.ui.input({ prompt = "Diff against" },
+        function(input) vim.cmd("Gitsigns diffthis " .. input .. " split=botright") end) end,
+    { buffer = buffer, desc = "[h]unk diff" })
   vim.keymap.set("n", "<leader>ht", gs.toggle_deleted, { buffer = buffer, desc = "[h]unk [t]oggle deleted" })
 
   -- Text object

@@ -59,9 +59,22 @@ vim.g.markdown_recommended_style = 0
 -- diagnostic config
 local icons = require("settings.icons").diagnostics
 vim.diagnostic.config({
+
+  virtual_text = {
+    spacing = 4,
+    source = "if_many",
+    prefix = "●",
+    severity_sort = true,
+  },
+  float = {
+    severity_sort = true,
+    source = 'if_many',
+    border = "rounded",
+  },
   severity_sort = true,
-  virtual_lines = true,
-  float = { border = "rounded" },
+  underline = true,
+  virtual_lines = false,
+  update_in_insert = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.Error,

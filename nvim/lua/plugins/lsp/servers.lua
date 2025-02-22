@@ -1,7 +1,21 @@
 local M = {}
 
 M.servers = {
-  lua_ls = {},
+  lua_ls = {
+    settings = {
+      Lua = {
+        hint = {
+          enable = true,
+          arrayIndex = "Enable",
+          setType = true,
+          paramName = "All",
+          paramType = true,
+          semicolon = "SameLine",
+          compose = true,
+        },
+      },
+    },
+  },
   -- web
   cssls = {},
   html = {},
@@ -11,7 +25,7 @@ M.servers = {
   eslint = {},
   emmet_language_server = {},
   vtsls = {
-    on_attach = function(client, bufnr)
+    on_attach = function(_, bufnr)
       vim.keymap.set("n", "<leader>lio", function()
         vim.lsp.buf.code_action({
           apply = true,

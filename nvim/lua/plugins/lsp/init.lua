@@ -35,31 +35,6 @@ return {
       cmd = { "LspInfo", "LspInstall", "LspStart" },
       event = { "BufReadPre", "BufNewFile" },
       config = function()
-        -- Настройка диагностики
-        vim.diagnostic.config({
-          virtual_text = {
-            spacing = 4,
-            source = "if_many",
-            prefix = "●",
-            severity_sort = true,
-          },
-          float = {
-            severity_sort = true,
-            source = 'if_many',
-            border = "rounded",
-          },
-          severity_sort = true,
-          underline = true,
-          update_in_insert = false
-        })
-
-        -- border
-        vim.lsp.handlers["textDocument/hover"] =
-            vim.lsp.with(vim.lsp.handlers.hover, {
-              border = "rounded",
-              focusable = true,
-            })
-
         vim.api.nvim_create_autocmd("LspAttach", {
           group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
           callback = function(event)
@@ -100,6 +75,7 @@ return {
         vim.list_extend(ensure_installed, {})
 
         require("mason-lspconfig").setup({
+          automatic_installation = false,
           ensure_installed = ensure_installed,
           handlers = {
             function(server_name)

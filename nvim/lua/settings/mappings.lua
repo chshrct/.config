@@ -127,13 +127,17 @@ vim.keymap.set("n", "<leader>th", ":nohlsearch<CR>", {
 vim.keymap.set(
   "n",
   "[d",
-  vim.diagnostic.goto_prev,
+  function()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end,
   { desc = "previous [d]iagnostic message" }
 )
 vim.keymap.set(
   "n",
   "]d",
-  vim.diagnostic.goto_next,
+  function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end,
   { desc = "next [d]iagnostic message" }
 )
 vim.keymap.set(

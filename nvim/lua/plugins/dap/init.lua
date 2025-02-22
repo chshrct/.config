@@ -12,8 +12,8 @@ return {
     config = function()
       local function get_js_debug()
         local install_path = require("mason-registry")
-          .get_package("js-debug-adapter")
-          :get_install_path()
+            .get_package("js-debug-adapter")
+            :get_install_path()
         return install_path .. "\\js-debug\\src\\dapDebugServer.js"
       end
 
@@ -63,7 +63,7 @@ return {
       end
 
       local js_filetypes =
-        { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+      { "typescript", "javascript", "typescriptreact", "javascriptreact" }
 
       local vscode = require("dap.ext.vscode")
       vscode.type_to_filetypes["node"] = js_filetypes
