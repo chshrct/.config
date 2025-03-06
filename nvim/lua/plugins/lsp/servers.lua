@@ -103,7 +103,6 @@ M.servers = {
     },
   },
   taplo = {},
-  csharp_ls = {},
 }
 
 return M

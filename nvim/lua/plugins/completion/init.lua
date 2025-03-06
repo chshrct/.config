@@ -166,7 +166,7 @@ return {
     "yetone/avante.nvim",
     enabled = true,
     event = "VeryLazy",
-    version = false, -- set this if you want to always pull the latest change
+    version = "0.0.21", -- set this if you want to always pull the latest change
     opts = {
       -- add any opts here
       provider = "copilot",
@@ -176,9 +176,8 @@ return {
         model = "claude-3.7-sonnet",
       },
     },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    -- build = "make",
-    build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false", -- for windows
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false",
+    build = "make",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
