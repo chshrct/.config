@@ -11,6 +11,15 @@
 [delta]
   true-color = always
   line-numbers = true
+  navigate = true
+  light = false
+  file-style = "bold yellow ul"
+  file-decoration-style = "none"
+  hunk-header-style = "file line-number syntax"
+  hunk-header-decoration-style = "blue box"
+  minus-style = "syntax auto"
+  plus-style = "syntax auto"
+  syntax-theme = "rose_pine"
 [diff]
   tool = nvimdiff
 [difftool]
