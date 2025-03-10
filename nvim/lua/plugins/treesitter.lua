@@ -8,7 +8,7 @@ return {
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     keys = {
       { "<leader>v", desc = "Increment selection" },
-      { "<leader>V", desc = "Schrink selection", mode = "x" },
+      { "<leader>V", desc = "Schrink selection",  mode = "x" },
     },
     opts = {
       auto_install = true,
@@ -18,6 +18,7 @@ return {
       ensure_installed = {
         "lua",
         "luadoc",
+        "html",
         "markdown",
         "markdown_inline",
         "regex",
