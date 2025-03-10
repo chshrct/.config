@@ -1,3 +1,3 @@
 require("settings.options")
-require("settings.mappings")
+require("settings.keymaps")
 require("settings.autocmds")

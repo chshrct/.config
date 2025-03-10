@@ -21,6 +21,17 @@ return {
           preset = "enter",
           ["<C-k>"] = { "select_prev", "fallback" },
           ["<C-j>"] = { "select_next", "fallback" },
+        },
+        completion = {
+          list = {
+            selection = {
+              preselect = false,
+              auto_insert = true
+            }
+          },
+          menu = {
+            auto_show = true
+          }
         }
       },
       appearance = {

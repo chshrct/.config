@@ -45,7 +45,7 @@ return {
             -- inlay hints toggle
             if
                 client
-                and client.supports_method(
+                and client:supports_method(
                   vim.lsp.protocol.Methods.textDocument_inlayHint
                 )
             then
