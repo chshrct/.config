@@ -1,5 +1,5 @@
 # Path configuration
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/usr/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/usr/bin:/usr/sbin"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Oh My Zsh configuration
@@ -91,8 +91,11 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # Tool initialization
-# Starship prompt
+# starship prompt
 command -v starship &> /dev/null && eval "$(starship init zsh)"
+
+# keychain
+eval $(keychain --eval --quiet ~/.ssh/wsl )
 
 # zoxide for directory navigation
 if command -v zoxide &> /dev/null; then
@@ -235,14 +238,3 @@ update_custom_plugins() {
   
   echo "Custom plugins update completed."
 }
-
-# SSH agent
-start_ssh_agent() {
-  [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" > /dev/null
-}
-start_ssh_agent
-
-# Load additional configs
-for config_file in ~/.zsh/*.zsh; do
-  [ -r "$config_file" ] && source "$config_file"
-done
