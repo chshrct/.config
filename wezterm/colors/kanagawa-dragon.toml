@@ -1,0 +1,68 @@
+[colors]
+foreground = "#DCD7BA"      # fujiWhite
+background = "#1F1F28"      # sumiInk1
+cursor_bg = "#658594"       # dragonBlue
+cursor_border = "#658594"   # dragonBlue
+cursor_fg = "#DCD7BA"       # fujiWhite
+selection_bg = "#6A9589"    # waveAqua1
+selection_fg = "#1F1F28"    # sumiInk1
+split = "#7FB4CA"           # light variant of dragonBlue
+compose_cursor = "#6A9589"  # waveAqua1
+scrollbar_thumb = "#363646" # sumiInk3
+
+ansi = [
+  "#54546D", # sumiInk4 (modified)
+  "#C34043", # autumnRed
+  "#76946A", # autumnGreen
+  "#DCA561", # autumnYellow
+  "#658594", # dragonBlue
+  "#957FB8", # lotusPurple
+  "#7FB4CA", # light dragonBlue
+  "#C8C093", # oldWhite
+]
+
+brights = [
+  "#727169", # fujiGray
+  "#E46876", # light autumnRed
+  "#98BB6C", # springGreen
+  "#FF9E3B", # roninYellow
+  "#7AA89F", # waveAqua2
+  "#A98FD1", # light lotusPurple
+  "#6A9589", # waveAqua1
+  "#DCD7BA", # fujiWhite
+]
+
+[colors.indexed]
+16 = "#E6C384" # carpYellow
+17 = "#D27E99" # sakuraPink
+
+[colors.tab_bar]
+background = "#2A2A37"        # sumiInk2
+inactive_tab_edge = "#658594" # dragonBlue
+
+[colors.tab_bar.active_tab]
+fg_color = "#DCD7BA" # fujiWhite
+bg_color = "#1F1F28" # sumiInk1
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#727169" # fujiGray
+bg_color = "#2A2A37" # sumiInk2
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#7FB4CA" # light dragonBlue
+bg_color = "#1F1F28" # sumiInk1
+
+[colors.tab_bar.new_tab]
+fg_color = "#727169" # fujiGray
+bg_color = "#2A2A37" # sumiInk2
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#7FB4CA" # light dragonBlue
+bg_color = "#1F1F28" # sumiInk1
+intensity = "Bold"
+
+[metadata]
+name = "kanagawa-dragon"
+author = "Kanagawa.nvim Adaptation"
+origin_url = "https://github.com/rebelot/kanagawa.nvim"

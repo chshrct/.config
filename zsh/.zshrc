@@ -4,6 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 
+
 # Oh My Zsh configuration
 ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode auto
@@ -112,6 +113,12 @@ fi
 # fnm for Node.js version management
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 
+# sesh for session management
+if command -v sesh &> /dev/null; then
+  alias ss='sesh connect $(sesh list | fzf)'
+  alias sl='sesh list'
+fi
+
 # Modern replacements for standard tools
 # eza (ls replacement)
 if command -v eza &> /dev/null; then
@@ -128,7 +135,7 @@ fi
 
 # bat (cat replacement)
 if command -v bat &> /dev/null; then
-  export BAT_THEME="rose_pine"
+  export BAT_THEME="kanagawa-dragon"
   export BAT_STYLE="numbers,changes,header"
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   alias cat='bat --paging=never'
@@ -146,7 +153,6 @@ fi
 
 # ripgrep (grep replacement)
 if command -v rg &> /dev/null; then
-  export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
   alias rgi='rg -i'
   alias rgh='rg --hidden'
 fi
@@ -168,7 +174,9 @@ if command -v fzf &> /dev/null; then
   '
 
   # FZF options
-  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --cycle --preview=\"$fzf_preview_cmd\" --preview-window=right:60%:wrap"
+  # kanagawa-paper-ink theme colors
+  # export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --cycle --preview=\"$fzf_preview_cmd\" --preview-window=right:60%:wrap --color=bg:-1,bg+:#2A2A37,fg:-1,fg+:#DCD7BA,hl:#938AA9,hl+:#c4746e --color=header:#b6927b,info:#658594,pointer:#7AA89F --color=marker:#7AA89F,prompt:#c4746e,spinner:#8ea49e"
+  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --cycle --preview=\"$fzf_preview_cmd\" --preview-window=right:60%:wrap --color=bg:-1,bg+:#2A2A37,fg:-1,fg+:#DCD7BA,hl:#957FB8,hl+:#FF5D62 --color=header:#FFA066,info:#658594,pointer:#7AA89F --color=marker:#7AA89F,prompt:#E46876,spinner:#7E9CD8"
   export FZF_CTRL_R_OPTS="--preview-window=hidden"
 fi
 
