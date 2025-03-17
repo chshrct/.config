@@ -1,6 +1,8 @@
 # Path configuration
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/usr/bin:/usr/sbin"
 export ZSH="$HOME/.oh-my-zsh"
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
 
 # Oh My Zsh configuration
 ZSH_THEME="robbyrussell"
