@@ -49,7 +49,7 @@ opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 opt.incsearch = true -- Highlight search on type
 opt.colorcolumn = "80" -- Indent for code length
-opt.listchars:append("eol:↴") -- Show end of line
+opt.listchars:append("eol:↵") -- Show end of line
 opt.pumblend = 0 -- kinda transparancy
 opt.smoothscroll = true -- Smooth scroll
 
@@ -84,19 +84,3 @@ vim.diagnostic.config({
     }
   }
 })
-
--- powershell windows
-if vim.fn.has('win32') == 1 then
-  local powershell_options = {
-    shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-    shellcmdflag = "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -Command ",
-    shellredir = "2>&1 | Out-File -Encoding UTF8 %s",
-    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s",
-    shellquote = "",
-    shellxquote = "",
-  }
-
-  for option, value in pairs(powershell_options) do
-    vim.opt[option] = value
-  end
-end

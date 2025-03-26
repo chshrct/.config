@@ -38,3 +38,5 @@
   st = status -sb
 [credential "helperselector"]
 	selected = manager
+[credential]
+	helper = store

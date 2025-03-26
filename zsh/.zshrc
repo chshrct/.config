@@ -1,5 +1,5 @@
 # Path configuration
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/usr/bin:/usr/sbin"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.local/share/fnm:$PATH:/usr/bin:/usr/sbin"
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
@@ -98,7 +98,7 @@ export VISUAL='nvim'
 command -v starship &> /dev/null && eval "$(starship init zsh)"
 
 # keychain
-eval $(keychain --eval --quiet ~/.ssh/wsl )
+eval $(keychain --eval --quiet ~/.ssh/arch )
 
 # zoxide for directory navigation
 if command -v zoxide &> /dev/null; then

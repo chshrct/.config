@@ -56,6 +56,7 @@ M.servers = {
     settings = {
       complete_function_calls = true,
       vtsls = {
+        init_options = { hostInfo = "neovim" },
         enableMoveToFileCodeAction = true,
         autoUseWorkspaceTsdk = true,
         experimental = {
@@ -66,6 +67,9 @@ M.servers = {
         },
       },
       typescript = {
+        tsserver = {
+          maxTsServerMemory = 8192
+        },
         updateImportsOnFileMove = { enabled = "always" },
         suggest = {
           completeFunctionCalls = true,

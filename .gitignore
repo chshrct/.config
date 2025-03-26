@@ -1,2 +1,28 @@
 github-copilot/
 tmux/plugins/
+.gsd-keyboard.settings-ported
+Outline Manager/
+Outline/
+autostart/
+dconf/
+evolution/
+go/
+google-chrome/
+gtk-3.0/
+mimeapps.list
+monitors.xml
+monitors.xml~
+pulse/
+systemd/
+turborepo/
+user-dirs.dirs
+user-dirs.locale
+Microsoft/Microsoft Teams
+containers
+goa-1.0
+simple-update-notifier
+teams
+background
+dleyna-renderer-service.conf
+JetBrains/Rider2024.3
+gtk-4.0
