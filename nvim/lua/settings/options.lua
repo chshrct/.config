@@ -52,9 +52,8 @@ opt.colorcolumn = "80" -- Indent for code length
 opt.listchars:append("eol:↵") -- Show end of line
 opt.pumblend = 0 -- kinda transparancy
 opt.smoothscroll = true -- Smooth scroll
-
--- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+opt.guicursor = "a:block-blinkon0-blinkoff0-reverse"
 
 -- diagnostic config
 local icons = require("settings.icons").diagnostics
