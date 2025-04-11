@@ -1,15 +1,4 @@
 return {
-  -- neogit
-  {
-    "NeogitOrg/neogit",
-    cmd = { "Neogit" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-    },
-    config = true,
-  },
-
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
@@ -56,4 +45,12 @@ return {
     keys = require("plugins.git.keymaps").diffview,
     opts = {},
   },
+
+  -- conflict
+  {
+    'akinsho/git-conflict.nvim',
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    version = "*",
+    opts = {}
+  }
 }
