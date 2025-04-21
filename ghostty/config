@@ -21,13 +21,14 @@
 # # separated by equals signs.
 # font-family = Iosevka
 background-opacity = 0.9
-font-size = 11
+font-size = 10
 theme = Kanagawa Dragon
 cursor-invert-fg-bg = true
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor,no-sudo,title
-#
+window-padding-x=0
+window-padding-y=0
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
 # key=value
