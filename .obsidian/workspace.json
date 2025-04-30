@@ -1,0 +1,206 @@
+{
+  "main": {
+    "id": "b1e61ed314d58a51",
+    "type": "split",
+    "children": [
+      {
+        "id": "561ca71f8852efc5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14625edd83be9328",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/ibp-mvc-repository.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "ibp-mvc-repository.excalidraw"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0fe028bf2891fc1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3357522d0db52f05",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d0b334964374371e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2cf7266144177dde",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "280bfc4de3a5f124",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5411439f6d04c836",
+    "type": "split",
+    "children": [
+      {
+        "id": "a3dc48fe459e57b0",
+        "type": "tabs",
+        "dimension": 69.88416988416989,
+        "children": [
+          {
+            "id": "ba4987ad1bf4b263",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "2fa947bd7f7e83aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "9104beef3f52dbcc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9474b4bfe38c77b0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Excalidraw/ibp-mvc-repository.excalidraw.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ibp-mvc-repository.excalidraw"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "00bf513efe29180b",
+        "type": "tabs",
+        "dimension": 30.115830115830114,
+        "children": [
+          {
+            "id": "621f8d894dd1be15",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "14625edd83be9328",
+  "lastOpenFiles": [
+    "Excalidraw/ibp-mvc-repository.excalidraw.md",
+    "Excalidraw/Untitled Diagram.svg",
+    "ibp/Untitled Diagram.svg",
+    "Excalidraw/Drawing 2025-05-03 23.39.06.excalidraw.md",
+    "Excalidraw/Drawing 2025-05-03 23.47.54.excalidraw.md",
+    "Excalidraw",
+    "test note forr mega.md",
+    "Untitled.md",
+    "Untitled.canvas",
+    "ibp",
+    "2025-04-30.md",
+    "Excalidraw/Drawing 2025-04-30 20.09.03.excalidraw.md",
+    "Excalidraw/Scripts/Downloaded/Zoom to Fit Selected Elements.md",
+    "Excalidraw/Scripts/Downloaded/Zoom to Fit Selected Elements.svg",
+    "Excalidraw/Scripts/Downloaded",
+    "Excalidraw/Scripts",
+    "Работа.md",
+    "Welcome.md"
+  ]
+}
