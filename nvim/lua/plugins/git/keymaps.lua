@@ -15,8 +15,10 @@ M.gitsigns = function(buffer)
   vim.keymap.set("n", "<leader>hR", gs.reset_buffer, { buffer = buffer, desc = "[h]unk [R]eset buffer" })
   vim.keymap.set("n", "<leader>hp", gs.preview_hunk, { buffer = buffer, desc = "[h]unk preview" })
   vim.keymap.set("n", "<leader>hd",
-    function() vim.ui.input({ prompt = "Diff against" },
-        function(input) vim.cmd("Gitsigns diffthis " .. input .. " split=botright") end) end,
+    function()
+      vim.ui.input({ prompt = "Diff against" },
+        function(input) vim.cmd("Gitsigns diffthis " .. input .. " split=botright") end)
+    end,
     { buffer = buffer, desc = "[h]unk diff" })
   vim.keymap.set("n", "<leader>ht", gs.toggle_deleted, { buffer = buffer, desc = "[h]unk [t]oggle deleted" })
 
@@ -29,37 +31,6 @@ M.gitblame = {
   { "<leader>by", "<cmd>GitBlameCopySHA<CR>",       desc = "[b]lame [y]ank commit hash", },
   { "<leader>bf", "<cmd>GitBlameOpenFileURL<CR>",   desc = "[b]lame file URL", },
   { "<leader>bc", "<cmd>GitBlameOpenCommitURL<CR>", desc = "[b]lame [c]ommit URL", },
-}
-
-M.diffview = {
-  {
-    "<leader>gd",
-    function()
-      vim.ui.input({ prompt = "Diff revision/options" }, function(input)
-        if input then
-          vim.api.nvim_command("DiffviewOpen" .. " " .. input)
-        end
-      end)
-    end,
-    desc = "[g]it [d]iff",
-  },
-  {
-    "<leader>gh",
-    function()
-      local isModeVisual = vim.api.nvim_get_mode().mode == "V"
-      vim.ui.input({ prompt = "Files history paths/options" }, function(input)
-        if input then
-          if isModeVisual then
-            vim.api.nvim_command("'<,'>DiffviewFileHistory")
-          else
-            vim.api.nvim_command("DiffviewFileHistory" .. " " .. input)
-          end
-        end
-      end)
-    end,
-    mode = { "n", "v" },
-    desc = "[g]it file [h]istory",
-  },
 }
 
 return M

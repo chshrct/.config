@@ -38,14 +38,6 @@ return {
     },
   },
 
-  -- diff
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-    keys = require("plugins.git.keymaps").diffview,
-    opts = {},
-  },
-
   -- conflict
   {
     'akinsho/git-conflict.nvim',
