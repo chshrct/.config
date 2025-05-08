@@ -3,6 +3,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.local/share/fnm:$P
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 
 # Oh My Zsh configuration
@@ -96,9 +97,6 @@ export VISUAL='nvim'
 # Tool initialization
 # starship prompt
 command -v starship &> /dev/null && eval "$(starship init zsh)"
-
-# keychain
-eval $(keychain --eval --quiet ~/.ssh/arch )
 
 # zoxide for directory navigation
 if command -v zoxide &> /dev/null; then
@@ -248,3 +246,11 @@ update_custom_plugins() {
   
   echo "Custom plugins update completed."
 }
+# Add keys to ssh-agent
+if [ -n "$SSH_AUTH_SOCK" ]; then
+    ssh-add ~/.ssh/arch 2>/dev/null  
+fi
+
+if uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi

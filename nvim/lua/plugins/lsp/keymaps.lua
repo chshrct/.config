@@ -17,9 +17,9 @@ M.lsp = function(event)
     { buffer = event.buf, desc = "[l]sp: workspace [S]ymbols", silent = true })
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded", focusable = true }) end,
     { buffer = event.buf, desc = "lsp: hover documentation" })
-  vim.keymap.set({ "n", "i" }, "<C-k>",
-    function() vim.lsp.buf.signature_help({ border = "rounded", focusable = true }) end,
-    { buffer = event.buf, desc = "lsp: signature help" })
+  -- vim.keymap.set({ "n", "i" }, "<C-k>",
+  --   function() vim.lsp.buf.signature_help({ border = "rounded", focusable = true }) end,
+  --   { buffer = event.buf, desc = "lsp: signature help" })
 
   -- Lesser used LSP functionality
   vim.keymap.set("n", "<leader>ld", vim.lsp.buf.declaration, { buffer = event.buf, desc = "[l]sp: goto [d]eclaration" })

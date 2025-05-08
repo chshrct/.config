@@ -23,6 +23,7 @@ M.servers = {
   cssmodules_ls = {},
   tailwindcss = {},
   eslint = {},
+  hyprls = {},
   emmet_language_server = {},
   vtsls = {
     on_attach = function(_, bufnr)

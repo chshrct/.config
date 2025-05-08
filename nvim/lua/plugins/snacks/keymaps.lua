@@ -3,7 +3,6 @@ local M
 M = {
   { "<leader>x",  function() Snacks.explorer() end,                                       desc = "file e[x]plorer" },
   { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "[b]uffer [d]elete", },
-  { "<C-t>",      function() Snacks.terminal() end,                                       desc = "toggle [t]erminal", },
   { "]]",         function() Snacks.words.jump(vim.v.count1) end,                         desc = "next reference",              mode = { "n", "t" }, },
   { "[[",         function() Snacks.words.jump(-vim.v.count1) end,                        desc = "prev reference",              mode = { "n", "t" }, },
   { "<leader>z",  function() Snacks.zen() end,                                            desc = "toggle [z]en mode", },
