@@ -1,0 +1,78 @@
+# Kanagawa Dragon (Darker) Color Palette
+# Based on https://github.com/thesimonho/kanagawa-paper.nvim
+
+# Background & Base Colors
+background: "#181616"  # Dragon background (darker)
+foreground: "#DCD7BA"  # fujiWhite
+
+# Dragon Background Shades
+dragonBlack0: "#0D0C0C" # Darkest background
+dragonBlack1: "#12120F" # Very dark background
+dragonBlack2: "#1D1C19" # Special dark background
+dragonBlack3: "#181616" # Default background
+dragonBlack4: "#282727" # Lighter background (colorcolumn, folds)
+dragonBlack5: "#393836" # Lighter background (cursorline)
+dragonBlack6: "#625E5A" # Darker foreground (line numbers, comments)
+
+# Foreground Colors
+dragonWhite: "#C5C9C5"  # Default foreground
+oldWhite: "#C8C093"     # Dark foreground (statuslines)
+fujiGray: "#727169"     # Comments
+
+# UI Colors
+waveBlue1: "#223249"    # Popup background, visual selection background
+waveBlue2: "#2D4F67"    # Popup selection background, search background
+
+# Diff Colors
+winterGreen: "#2B3328"  # Diff Add (background)
+winterYellow: "#49443C" # Diff Change (background)
+winterRed: "#43242B"    # Diff Deleted (background)
+winterBlue: "#252535"   # Diff Line (background)
+
+# Git Colors
+autumnGreen: "#87A987"  # Git Add
+autumnRed: "#C34043"    # Git Delete
+autumnYellow: "#C0A36E" # Git Change
+
+# Diagnostic Colors
+samuraiRed: "#E82424"   # Diagnostic Error
+roninYellow: "#FF9E3B"  # Diagnostic Warning
+waveAqua1: "#6A9589"    # Diagnostic Info
+dragonBlue: "#658594"   # Diagnostic Hint
+
+# Syntax Colors
+dragonGreen: "#87A987"   # Various green elements
+dragonGreen2: "#8A9A7B"  # Alternative green
+dragonPink: "#A292A3"    # Pink/purple elements
+dragonOrange: "#B6927B"  # Orange elements
+dragonOrange2: "#B98D7B" # Alternative orange
+dragonGray: "#A6A69C"    # Gray elements
+dragonGray2: "#9E9B93"   # Alternative gray
+oniViolet: "#957FB8"     # Statements and Keywords
+crystalBlue: "#7E9CD8"   # Functions and Titles
+springBlue: "#7FB4CA"    # Specials and builtin functions
+waveAqua2: "#7AA89F"     # Types
+springGreen: "#98BB6C"   # Strings
+carpYellow: "#E6C384"    # Identifiers
+sakuraPink: "#D27E99"    # Numbers
+peachRed: "#FF5D62"      # Standout specials 2 (exception handling, return)
+surimiOrange: "#FFA066"  # Constants, imports, booleans
+
+# Terminal Colors
+terminal_colors:
+  black: "#0D0C0C"
+  red: "#C34043"
+  green: "#76946A"
+  yellow: "#C0A36E"
+  blue: "#7E9CD8"
+  magenta: "#957FB8"
+  cyan: "#6A9589"
+  white: "#C8C093"
+  bright_black: "#727169"
+  bright_red: "#E82424"
+  bright_green: "#98BB6C"
+  bright_yellow: "#E6C384"
+  bright_blue: "#7FB4CA"
+  bright_magenta: "#938AA9"
+  bright_cyan: "#7AA89F"
+  bright_white: "#DCD7BA" 

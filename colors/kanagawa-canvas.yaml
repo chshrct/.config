@@ -1,0 +1,71 @@
+# Kanagawa Canvas (Light) Color Palette
+# Based on https://github.com/thesimonho/kanagawa-paper.nvim
+
+# Background & Base Colors
+background: "#F2F0E5"  # Canvas background
+foreground: "#545049"  # Canvas foreground
+
+# Background Shades
+canvasBg: "#F2F0E5"    # Default background
+canvasBgDark: "#DCD7BA" # Darker background elements
+canvasBgMuted: "#E6E0C2" # Muted background
+
+# Foreground Shades
+canvasFg: "#545049"    # Default foreground  
+canvasFgDark: "#43402B" # Darker foreground
+canvasFgMuted: "#8A8980" # Muted foreground (comments)
+
+# UI Colors
+crystalBlue: "#7495B6"  # Functions and titles
+waveBlue1: "#223249"    # Visual selection
+waveBlue2: "#2D4F67"    # Search background
+
+# Diff Colors
+winterGreen: "#2B3328"  # Diff Add (background)
+winterYellow: "#49443C" # Diff Change (background)
+winterRed: "#43242B"    # Diff Deleted (background)
+winterBlue: "#252535"   # Diff Line (background)
+
+# Git Colors
+autumnGreen: "#618774"  # Git Add
+autumnRed: "#C14A4A"    # Git Delete
+autumnYellow: "#907A4A" # Git Change
+
+# Diagnostic Colors
+samuraiRed: "#B84141"   # Diagnostic Error
+roninYellow: "#C68B23"  # Diagnostic Warning
+waveAqua1: "#537C8C"    # Diagnostic Info
+dragonBlue: "#537893"   # Diagnostic Hint
+
+# Syntax Colors
+oniViolet: "#765E95"    # Statements and Keywords
+crystalBlue: "#7495B6"  # Functions and Titles
+springViolet2: "#766B8A" # Brackets and punctuation
+springBlue: "#5D89AA"   # Specials and builtin functions
+waveAqua2: "#587C7D"    # Types
+springGreen: "#727B42"  # Strings
+boatYellow2: "#8A7A46"  # Operators, RegEx
+carpYellow: "#AD8C4D"   # Identifiers
+sakuraPink: "#A8516E"   # Numbers
+peachRed: "#C44F4F"     # Exception handling, return
+surimiOrange: "#CC6D00" # Constants, imports, booleans
+fujiGray: "#8A8980"     # Comments
+
+# Terminal Colors
+terminal_colors:
+  black: "#0D0C0C"
+  red: "#C4746E"
+  green: "#87A987"
+  yellow: "#C4B28A"
+  blue: "#8992A7"
+  magenta: "#A292A3"
+  cyan: "#8EA49E"
+  white: "#C5C9C5"
+  bright_black: "#ACA9A4"
+  bright_red: "#E46876"
+  bright_green: "#8BA388"
+  bright_yellow: "#E6C384"
+  bright_blue: "#7FB4CA"
+  bright_magenta: "#938AA9"
+  bright_cyan: "#7AA89F"
+  bright_white: "#DCD7BA" 

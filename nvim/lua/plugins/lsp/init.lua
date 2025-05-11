@@ -39,25 +39,6 @@ return {
           group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
           callback = function(event)
             require("plugins.lsp.keymaps").lsp(event)
-
-            local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-            -- inlay hints toggle
-            if
-                client
-                and client:supports_method(
-                  vim.lsp.protocol.Methods.textDocument_inlayHint
-                )
-            then
-              vim.keymap.set("n", "<leader>tH", function()
-                vim.lsp.inlay_hint.enable(
-                  not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
-                )
-              end, {
-                buffer = event.buf,
-                desc = "[t]oggle inlay [H]ints",
-              })
-            end
           end,
         })
 
@@ -75,6 +56,7 @@ return {
         vim.list_extend(ensure_installed, {})
 
         require("mason-lspconfig").setup({
+          automatic_enable = true,
           automatic_installation = false,
           ensure_installed = ensure_installed,
           handlers = {
@@ -86,7 +68,6 @@ return {
                 capabilities,
                 server.capabilities or {}
               )
-              require("lspconfig")[server_name].setup(server)
             end,
           },
         })

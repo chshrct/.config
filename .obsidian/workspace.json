@@ -11,15 +11,32 @@
             "id": "14625edd83be9328",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/ibp-mvc-repository.excalidraw.md"
+                "file": "dodo/dodo onboarding.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "ibp-mvc-repository.excalidraw"
+              "icon": "lucide-file",
+              "title": "dodo onboarding"
+            }
+          },
+          {
+            "id": "808eea33b1f2e87a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dodo/Token dodo npm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Token dodo npm"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -139,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/ibp-mvc-repository.excalidraw.md",
+                "file": "dodo/Token dodo npm.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ibp-mvc-repository.excalidraw"
+              "title": "Outline of Token dodo npm"
             }
           }
         ],
@@ -182,8 +199,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "14625edd83be9328",
+  "active": "808eea33b1f2e87a",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2025-05-15 00.43.39.excalidraw.md",
+    "dodo/Token dodo npm.md",
+    "dodo/dodo onboarding.md",
     "Excalidraw/ibp-mvc-repository.excalidraw.md",
     "dodo",
     "ibp/Untitled",

@@ -94,4 +94,8 @@ return {
       },
     },
   },
+
+  {
+    'lbrayner/vim-rzip', -- GitHub plugin specifier
+  }
 }

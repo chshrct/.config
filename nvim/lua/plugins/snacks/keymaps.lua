@@ -34,7 +34,6 @@ M = {
   { "<leader>sR", function() Snacks.picker.resume() end,                                  desc = "[s]earch [r]esume" },
   { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "[s]earch [q]uickfix list" },
   -- git
-  { "<leader>gl", function() Snacks.picker.git_log() end,                                 desc = "[g]it [l]og" },
   { "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "[g]it [s]tatus" },
   -- Grep
   { "<leader>/",  function() Snacks.picker.lines() end,                                   desc = "[s]earch current buffer" },

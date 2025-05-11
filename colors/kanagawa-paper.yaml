@@ -1,0 +1,154 @@
+# Kanagawa Paper Color Palette
+# Based on https://github.com/thesimonho/kanagawa-paper.nvim
+# A remixed Kanagawa with more muted colors
+
+# Theme Variants
+variants:
+  - ink     # Dark theme
+  - canvas  # Light theme
+
+# Ink (Dark Theme) - Muted
+ink:
+  background: "#1F1F28"  # sumiInk1
+  foreground: "#DCD7BA"  # fujiWhite
+  
+  # Background Shades
+  sumiInk0: "#16161D"    # Dark background
+  sumiInk1: "#1F1F28"    # Default background
+  sumiInk2: "#2A2A37"    # Lighter background
+  sumiInk3: "#363646"    # Lighter background (cursorline)
+  sumiInk4: "#54546D"    # Darker foreground (line numbers)
+  sumiInk5: "#363646"    # Mid-tone
+  sumiInk6: "#54546D"    # Lighter foreground
+  
+  # Foreground
+  fujiWhite: "#DCD7BA"   # Default foreground
+  oldWhite: "#C8C093"    # Dark foreground
+  fujiGray: "#727169"    # Comments
+  
+  # UI Colors
+  waveBlue1: "#223249"   # Popup background
+  waveBlue2: "#2D4F67"   # Selection background
+  
+  # Diff/Git
+  winterGreen: "#2B3328" # Diff Add background
+  winterYellow: "#49443C" # Diff Change background
+  winterRed: "#43242B"   # Diff Delete background
+  winterBlue: "#252535"  # Diff Line background
+  autumnGreen: "#76946A" # Git Add
+  autumnRed: "#C34043"   # Git Delete
+  autumnYellow: "#DCA561" # Git Change
+  
+  # Diagnostic
+  samuraiRed: "#E82424"  # Error
+  roninYellow: "#FF9E3B" # Warning
+  waveAqua1: "#6A9589"   # Info
+  dragonBlue: "#658594"  # Hint
+  
+  # Syntax - Muted variants from original kanagawa
+  oniViolet: "#957FB8"     # Statements and Keywords (slightly muted)
+  crystalBlue: "#7E9CD8"   # Functions and Titles (slightly muted)
+  springViolet1: "#938AA9" # Light foreground
+  springViolet2: "#9CABCA" # Brackets and punctuation
+  springBlue: "#7FB4CA"    # Specials and builtin functions
+  lightBlue: "#A3D4D5"     # Rarely used
+  waveAqua2: "#7AA89F"     # Types
+  springGreen: "#98BB6C"   # Strings
+  boatYellow1: "#938056"   # Rarely used
+  boatYellow2: "#C0A36E"   # Operators, RegEx
+  carpYellow: "#E6C384"    # Identifiers
+  sakuraPink: "#D27E99"    # Numbers
+  waveRed: "#E46876"       # Builtin variables
+  peachRed: "#FF5D62"      # Exception handling, return
+  surimiOrange: "#FFA066"  # Constants, imports, booleans
+  katanaGray: "#717C7C"    # Deprecated
+  
+  # Terminal Colors
+  terminal_colors:
+    black: "#090618"
+    red: "#C34043" 
+    green: "#76946A"
+    yellow: "#C0A36E"
+    blue: "#7E9CD8"
+    magenta: "#957FB8"
+    cyan: "#6A9589"
+    white: "#C8C093"
+    bright_black: "#727169"
+    bright_red: "#E82424"
+    bright_green: "#98BB6C"
+    bright_yellow: "#E6C384"
+    bright_blue: "#7FB4CA"
+    bright_magenta: "#938AA9"
+    bright_cyan: "#7AA89F"
+    bright_white: "#DCD7BA"
+
+# Canvas (Light Theme) - Muted  
+canvas:
+  background: "#F2F0E5"  # Canvas background
+  foreground: "#545049"  # Canvas foreground
+  
+  # Background
+  canvasBg: "#F2F0E5"    # Default background
+  canvasBgDark: "#DCD7BA" # Darker background
+  canvasBgMuted: "#E6E0C2" # Muted background
+  
+  # Foreground
+  canvasFg: "#545049"    # Default foreground  
+  canvasFgDark: "#43402B" # Darker foreground
+  canvasFgMuted: "#8A8980" # Muted foreground (comments)
+  
+  # UI Colors
+  waveBlue1: "#B5CBD3"    # Popup background (lighter)
+  waveBlue2: "#8EA3B4"    # Selection background (lighter)
+  
+  # Diff/Git
+  winterGreen: "#D8E3D6"  # Diff Add background (lighter)
+  winterYellow: "#E5DDBF" # Diff Change background (lighter)
+  winterRed: "#E6D2D5"    # Diff Delete background (lighter)
+  winterBlue: "#D3DBE5"   # Diff Line background (lighter)
+  autumnGreen: "#618774"  # Git Add (muted)
+  autumnRed: "#C14A4A"    # Git Delete (muted)
+  autumnYellow: "#907A4A" # Git Change (muted)
+  
+  # Diagnostic
+  samuraiRed: "#B84141"   # Error (muted)
+  roninYellow: "#C68B23"  # Warning (muted)
+  waveAqua1: "#537C8C"    # Info (muted)
+  dragonBlue: "#537893"   # Hint (muted)
+  
+  # Syntax - More muted and suitable for light theme
+  oniViolet: "#765E95"    # Statements and Keywords (muted)
+  crystalBlue: "#7495B6"  # Functions and Titles (muted)
+  springViolet1: "#8B839D" # Light foreground (muted)
+  springViolet2: "#766B8A" # Brackets and punctuation (muted)
+  springBlue: "#5D89AA"   # Specials and builtin functions (muted)
+  lightBlue: "#7CAAAD"    # Rarely used (muted)
+  waveAqua2: "#587C7D"    # Types (muted)
+  springGreen: "#727B42"  # Strings (muted)
+  boatYellow1: "#8D7C56"  # Rarely used (muted)
+  boatYellow2: "#8A7A46"  # Operators, RegEx (muted)
+  carpYellow: "#AD8C4D"   # Identifiers (muted)
+  sakuraPink: "#A8516E"   # Numbers (muted)
+  waveRed: "#B45B67"      # Builtin variables (muted)
+  peachRed: "#C44F4F"     # Exception handling, return (muted)
+  surimiOrange: "#CC6D00" # Constants, imports, booleans (muted)
+  katanaGray: "#717C7C"   # Deprecated
+  
+  # Terminal Colors (lighter variants for canvas theme)
+  terminal_colors:
+    black: "#0D0C0C"
+    red: "#C4746E"
+    green: "#87A987"
+    yellow: "#C4B28A"
+    blue: "#8992A7"
+    magenta: "#A292A3"
+    cyan: "#8EA49E"
+    white: "#C5C9C5"
+    bright_black: "#ACA9A4"
+    bright_red: "#E46876"
+    bright_green: "#8BA388"
+    bright_yellow: "#E6C384"
+    bright_blue: "#7FB4CA"
+    bright_magenta: "#938AA9"
+    bright_cyan: "#7AA89F"
+    bright_white: "#DCD7BA" 

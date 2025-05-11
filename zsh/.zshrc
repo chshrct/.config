@@ -254,3 +254,8 @@ fi
 if uwsm check may-start; then
     exec uwsm start hyprland.desktop
 fi
+
+
+if [ -f ~/.env.local ]; then
+  source ~/.config/.env.local
+fi

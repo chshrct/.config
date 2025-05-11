@@ -28,16 +28,6 @@ return {
     end,
   },
 
-  -- git blame
-  {
-    "f-person/git-blame.nvim",
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    keys = require("plugins.git.keymaps").gitblame,
-    opts = {
-      enabled = false,
-    },
-  },
-
   -- conflict
   {
     'akinsho/git-conflict.nvim',

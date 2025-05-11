@@ -148,66 +148,46 @@ return {
     end,
   },
 
-  -- avante
   {
     "yetone/avante.nvim",
-    enabled = true,
     event = "VeryLazy",
     version = false,
     opts = {
       provider = "copilot",
-      model = "claude",
       copilot = {
         endpoint = "https://api.githubcopilot.com/",
         model = "claude-3.7-sonnet",
-        temperature = 0,
-        max_tokens = 8192,
-      },
-      language_server = {
-        diagnostics = true,
-        formatting = true,
-      },
-      ui = {
-        markdown = true,
-        code_actions = {
-          enabled = true,
-          virtual_text = true,
-        },
-        diagnostics = {
-          virtual_text = true,
-        },
       },
     },
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false",
     build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "echasnovski/mini.icons",
+      "ibhagwan/fzf-lua",
+      "zbirenbaum/copilot.lua",
       {
-        -- support for image pasting
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
         opts = {
-          -- recommended settings
           default = {
             embed_image_as_base64 = false,
             prompt_for_file_name = false,
             drag_and_drop = {
               insert_mode = true,
             },
-            -- required for Windows users
-            use_absolute_path = true,
           },
         },
       },
       {
-        "MeanderingProgrammer/render-markdown.nvim",
+        'MeanderingProgrammer/render-markdown.nvim',
         opts = {
           file_types = { "markdown", "Avante" },
         },
         ft = { "markdown", "Avante" },
       },
     },
-  },
+  }
 }

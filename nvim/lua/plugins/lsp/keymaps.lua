@@ -29,6 +29,32 @@ M.lsp = function(event)
     { buffer = event.buf, desc = "[l]sp: [w]orkspace [r]emove folder" })
   vim.keymap.set("n", "<leader>lwl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
     { buffer = event.buf, desc = "[l]sp: [w]orkspace [l]ist folders" })
+
+  vim.keymap.set("n", "<leader>tH", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, {
+    buffer = event.buf,
+    desc = "[t]oggle inlay [H]ints",
+  })
+
+
+  -- vtsls
+  vim.keymap.set("n", "<leader>lio", function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.organizeImports" },
+      },
+    })
+  end, { buffer = bufnr, desc = "[l]sp [i]mports [o]rganize" })
+  vim.keymap.set("n", "<leader>lia", function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.addMissingImports.ts" },
+      },
+    })
+  end, { buffer = bufnr, desc = "[l]sp [i]mports [a]dd" })
 end
 
 M.format = function(conform)

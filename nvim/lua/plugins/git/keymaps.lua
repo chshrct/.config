@@ -21,16 +21,9 @@ M.gitsigns = function(buffer)
     end,
     { buffer = buffer, desc = "[h]unk diff" })
   vim.keymap.set("n", "<leader>ht", gs.toggle_deleted, { buffer = buffer, desc = "[h]unk [t]oggle deleted" })
-
-  -- Text object
-  vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { buffer = buffer, desc = "[i]nner [h]unk" })
+  vim.keymap.set("n", "<leader>bt", ":<C-U>Gitsigns toggle_current_line_blame<CR>",
+    { buffer = buffer, desc = "[b]lame line [t]oggle" })
+  vim.keymap.set("n", "<leader>gb", ":<C-U>Gitsigns blame<CR>", { buffer = buffer, desc = "[b]lame toggle" })
 end
-
-M.gitblame = {
-  { "<leader>bt", "<cmd>GitBlameToggle<CR>",        desc = "[b]lame [t]oggle", },
-  { "<leader>by", "<cmd>GitBlameCopySHA<CR>",       desc = "[b]lame [y]ank commit hash", },
-  { "<leader>bf", "<cmd>GitBlameOpenFileURL<CR>",   desc = "[b]lame file URL", },
-  { "<leader>bc", "<cmd>GitBlameOpenCommitURL<CR>", desc = "[b]lame [c]ommit URL", },
-}
 
 return M
