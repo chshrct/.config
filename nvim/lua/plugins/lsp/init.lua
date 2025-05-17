@@ -22,11 +22,9 @@ return {
     {
       "neovim/nvim-lspconfig",
       dependencies = {
-
         -- tools installer
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
         { "j-hui/fidget.nvim", opts = {} },
 
         -- Schema information
@@ -42,38 +40,31 @@ return {
           end,
         })
 
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend(
-          "force",
-          capabilities,
-          require("blink.cmp").get_lsp_capabilities()
-        )
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        local servers = require("plugins.lsp.servers").servers
-        require("mason").setup()
+        local servers = require("plugins.lsp.servers")
 
         local ensure_installed = vim.tbl_keys(servers or {})
-        vim.list_extend(ensure_installed, {})
 
-        require("mason-lspconfig").setup({
-          automatic_enable = true,
-          automatic_installation = false,
-          ensure_installed = ensure_installed,
-          handlers = {
-            function(server_name)
-              local server = servers[server_name] or {}
-              server.capabilities = vim.tbl_deep_extend(
-                "force",
-                {},
-                capabilities,
-                server.capabilities or {}
-              )
-            end,
-          },
-        })
+        require('mason-tool-installer').setup {
+          ensure_installed = ensure_installed
+        }
+
+        for server_name, _ in pairs(servers) do
+          local server = servers[server_name] or {}
+          server.capabilities = vim.tbl_deep_extend(
+            'force',
+            {},
+            capabilities,
+            server.capabilities or {}
+          )
+          vim.lsp.config(server_name, server or {})
+          vim.lsp.enable(server_name)
+        end
       end,
     },
   },
+
 
   -- format
   {

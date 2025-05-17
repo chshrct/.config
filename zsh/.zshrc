@@ -4,7 +4,14 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PATH="/home/chshrct/dodocli:$PATH"
 
+# Source sensitive environment variables from external file
+if [ -f "$ZDOTDIR/.zsh.env" ]; then
+  source "$ZDOTDIR/.zsh.env"
+elif [ -f "$HOME/.config/zsh/.zsh.env" ]; then
+  source "$HOME/.config/zsh/.zsh.env"
+fi
 
 # Oh My Zsh configuration
 ZSH_THEME="robbyrussell"
@@ -253,9 +260,4 @@ fi
 
 if uwsm check may-start; then
     exec uwsm start hyprland.desktop
-fi
-
-
-if [ -f ~/.env.local ]; then
-  source ~/.config/.env.local
 fi
