@@ -30,14 +30,6 @@ M.lsp = function(event)
   vim.keymap.set("n", "<leader>lwl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
     { buffer = event.buf, desc = "[l]sp: [w]orkspace [l]ist folders" })
 
-  vim.keymap.set("n", "<leader>tH", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, {
-    buffer = event.buf,
-    desc = "[t]oggle inlay [H]ints",
-  })
-
-
   -- vtsls
   vim.keymap.set("n", "<leader>lio", function()
     vim.lsp.buf.code_action({
@@ -46,7 +38,7 @@ M.lsp = function(event)
         only = { "source.organizeImports" },
       },
     })
-  end, { buffer = bufnr, desc = "[l]sp [i]mports [o]rganize" })
+  end, { buffer = event.buf, desc = "[l]sp [i]mports [o]rganize" })
   vim.keymap.set("n", "<leader>lia", function()
     vim.lsp.buf.code_action({
       apply = true,
@@ -54,7 +46,25 @@ M.lsp = function(event)
         only = { "source.addMissingImports.ts" },
       },
     })
-  end, { buffer = bufnr, desc = "[l]sp [i]mports [a]dd" })
+  end, { buffer = event.buf, desc = "[l]sp [i]mports [a]dd" })
+
+
+  vim.keymap.set("n", "<leader>ll", ":LspEslintFixAll<CR>", { buffer = event.buf, desc = "[l]sp es[l]int fix" })
+
+  local function client_supports_method(client, method, buf)
+    if vim.fn.has 'nvim-0.11' == 1 then
+      return client:supports_method(method, buf)
+    else
+      return client.supports_method(method, { buf = buf })
+    end
+  end
+
+  local client = vim.lsp.get_client_by_id(event.data.client_id)
+  if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+    vim.keymap.set('n', '<leader>lh', function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { buf = event.buf })
+    end, { buffer = event.buf, desc = 'toggle [L]sp inlay [H]ints' })
+  end
 end
 
 M.format = function(conform)

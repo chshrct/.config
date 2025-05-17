@@ -1,0 +1,3 @@
+# Ignore file containing sensitive environment variables
+.zshenv.keys
+.zsh.env

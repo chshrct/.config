@@ -151,19 +151,14 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false,
+    version = '*',
     opts = {
       provider = "copilot",
-      copilot = {
-        endpoint = "https://api.githubcopilot.com/",
-        model = "claude-3.7-sonnet",
-      },
     },
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "ibhagwan/fzf-lua",
