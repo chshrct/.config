@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "14625edd83be9328",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "dodo/dodo onboarding.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "dodo onboarding"
-            }
-          },
-          {
             "id": "808eea33b1f2e87a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dodo/Token dodo npm.md",
+                "file": "dodo/Узнать.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Token dodo npm"
+              "title": "Узнать"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -156,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dodo/Token dodo npm.md",
+                "file": "dodo/Узнать.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Token dodo npm"
+              "title": "Outline of Узнать"
             }
           }
         ],
@@ -201,9 +186,12 @@
   },
   "active": "808eea33b1f2e87a",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2025-05-15 00.43.39.excalidraw.md",
-    "dodo/Token dodo npm.md",
+    "dodo/deffered payment.md",
+    "dodo/Креды.md",
+    "dodo/Узнать.md",
     "dodo/dodo onboarding.md",
+    "dodo/Token dodo npm.md",
+    "Excalidraw/Drawing 2025-05-15 00.43.39.excalidraw.md",
     "Excalidraw/ibp-mvc-repository.excalidraw.md",
     "dodo",
     "ibp/Untitled",
