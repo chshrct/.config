@@ -30,49 +30,59 @@ local M = {
   graphql = {},
   cssmodules_ls = {},
   tailwindcss = {},
-  eslint = {
-    root_dir = "/home/chshrct/Projects/dodo/shiftmanager-frontend",
-    settings = {
-      nodePath = ".yarn/sdks",
-    }
-  },
-  hyprls = {},
-  emmet_language_server = {},
-  ts_ls = {},
-  -- vtsls = {
-  --   init_options = {
-  --     hostInfo = "neovim",
-  --   },
+  -- eslint = {
+  --   root_dir = "/home/chshrct/Projects/dodo/shiftmanager-frontend",
   --   settings = {
-  --     complete_function_calls = true,
-  --     enableMoveToFileCodeAction = true,
-  --     autoUseWorkspaceTsdk = true,
   --     experimental = {
-  --       maxInlayHintLength = 30,
-  --       completion = {
-  --         enableServerSideFuzzyMatch = true,
-  --       },
+  --       useFlatConfig = true
   --     },
-  --     typescript = {
-  --       tsdk = "/home/chshrct/Projects/dodo/shiftmanager-frontend/.yarn/sdks/typescript/lib",
-  --       tsserver = {
-  --         maxTsServerMemory = 8192
-  --       },
-  --       updateImportsOnFileMove = { enabled = "always" },
-  --       suggest = {
-  --         completeFunctionCalls = true,
-  --       },
-  --       inlayHints = {
-  --         enumMemberValues = { enabled = true },
-  --         functionLikeReturnTypes = { enabled = true },
-  --         parameterNames = { enabled = "literals" },
-  --         parameterTypes = { enabled = true },
-  --         propertyDeclarationTypes = { enabled = true },
-  --         variableTypes = { enabled = false },
-  --       },
-  --     },
-  --   },
+  --     packageManager = "yarn",
+  --     nodePath = ".yarn/sdks",
+  --   }
   -- },
+  hyprls = {},
+  -- emmet_language_server = {},
+  -- ts_ls = {},
+  csharp_ls = {},
+
+  vtsls = {
+    init_options = {
+      hostInfo = "neovim",
+    },
+    root_markers = { ".git/", "package.json" },
+    settings = {
+      refactor_auto_rename = true,
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          completion = {
+            enableServerSideFuzzyMatch = true,
+            entriesLimit = 20,
+          },
+        },
+      },
+      typescript = {
+        tsdk = ".yarn/sdks/typescript/lib",
+        tsserver = {
+          maxTsServerMemory = 8192
+        },
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
+    },
+  },
 
   -- configs
   jsonls = {

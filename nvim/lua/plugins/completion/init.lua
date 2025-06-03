@@ -52,7 +52,7 @@ return {
         nerd_font_variant = "normal",
       },
       sources = {
-        default = { "avante_commands", "avante_mentions", "avante_files", "lazydev", "lsp", "path", "snippets", "buffer" },
+        default = { "avante_commands", "avante_mentions", "avante_files", "lazydev", "lsp", "path", "buffer" },
         providers = {
           avante_commands = {
             name = "avante_commands",
@@ -154,6 +154,9 @@ return {
     version = '*',
     opts = {
       provider = "copilot",
+      selection = {
+        provider = "snacks"
+      }
     },
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -161,21 +164,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "ibhagwan/fzf-lua",
       "zbirenbaum/copilot.lua",
-      {
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-          },
-        },
-      },
       {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
