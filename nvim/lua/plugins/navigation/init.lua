@@ -119,15 +119,6 @@ return {
     end,
   },
 
-  -- fzf-lua
-  {
-    "ibhagwan/fzf-lua",
-    enabled = false,
-    cmd = "FzfLua",
-    keys = require("plugins.navigation.keymaps").fzf,
-    opts = {},
-  },
-
   -- harpoon
   {
     "ThePrimeagen/harpoon",

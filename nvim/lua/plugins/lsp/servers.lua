@@ -33,6 +33,7 @@ local M = {
   eslint = {
     root_dir = "/home/chshrct/Projects/dodo/shiftmanager-frontend",
     settings = {
+      packageManager = "yarn",
       nodePath = ".yarn/sdks",
     }
   },
