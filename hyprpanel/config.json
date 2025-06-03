@@ -431,5 +431,9 @@
   "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Telegram",
   "menus.dashboard.shortcuts.left.shortcut3.icon": "",
   "menus.power.logout": "uwsm stop",
-  "menus.dashboard.powermenu.logout": "uwsm stop"
+  "menus.dashboard.powermenu.logout": "uwsm stop",
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "menus.dashboard.shortcuts.right.shortcut3.command": "grimblast save area - | swappy -f -"
 }

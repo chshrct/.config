@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dodo/Узнать.md",
+                "file": "dodo/Сырье Списания.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Узнать"
+              "title": "Сырье Списания"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dodo/Узнать.md",
+                "file": "dodo/Сырье Списания.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Узнать"
+              "title": "Outline of Сырье Списания"
             }
           }
         ],
@@ -186,9 +186,11 @@
   },
   "active": "808eea33b1f2e87a",
   "lastOpenFiles": [
+    "dodo/Сырье.md",
+    "dodo/Сырье Списания.md",
+    "dodo/Узнать.md",
     "dodo/deffered payment.md",
     "dodo/Креды.md",
-    "dodo/Узнать.md",
     "dodo/dodo onboarding.md",
     "dodo/Token dodo npm.md",
     "Excalidraw/Drawing 2025-05-15 00.43.39.excalidraw.md",

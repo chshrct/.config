@@ -78,6 +78,7 @@ return {
 
       conform.setup({
         formatters_by_ft = {
+          cs = { "csharpier" },
           javascript = { "prettier", "eslint" },
           typescript = { "prettier", "eslint" },
           javascriptreact = { "prettier", "eslint" },
@@ -91,9 +92,22 @@ return {
           graphql = { "prettier" },
           lua = { "stylua" },
         },
+        formatters = {
+          csharpier = {
+            command = "csharpier",
+            args = { "format", "--write-stdout" },
+          },
+        },
       })
 
       require("plugins.lsp.keymaps").format(conform)
     end,
   },
+  {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
+    config = function()
+      require("csharpls_extended").buf_read_cmd_bind()
+    end
+  }
+
 }

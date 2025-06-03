@@ -100,8 +100,12 @@ return {
     opts = {
       autocmd = { enabled = true },
       sign = { enabled = false },
-      virtual_text = { enabled = true },
-    }
+      virtual_text = {
+        enabled = true,
+        text = "💡",
+        lens_text = "🔍",
+      },
+    },
   },
 
   -- better diagnostics list and others
