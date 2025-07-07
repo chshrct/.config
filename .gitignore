@@ -60,3 +60,6 @@ xfce4/xfconf/xfce-perchannel-xml
 Thunar
 nushell/env.nu
 Mousepad
+configstore/update-notifier-@google
+fvm
+tool_state
