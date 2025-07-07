@@ -60,7 +60,6 @@ opt.guicursor = "a:block-blinkon0-blinkoff0-reverse"
 -- diagnostic config
 local icons = require("settings.icons").diagnostics
 vim.diagnostic.config({
-
   virtual_text = {
     spacing = 4,
     source = "if_many",

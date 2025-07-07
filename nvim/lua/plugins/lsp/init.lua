@@ -15,16 +15,16 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    opts = {},
+    opts = {
+    },
   },
 
   {
     {
       "neovim/nvim-lspconfig",
       dependencies = {
-        -- tools installer
         "williamboman/mason.nvim",
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        "mason-org/mason-lspconfig.nvim",
         { "j-hui/fidget.nvim", opts = {} },
 
         -- Schema information
@@ -46,11 +46,7 @@ return {
 
         local servers = require("plugins.lsp.servers")
 
-        local ensure_installed = vim.tbl_keys(servers or {})
-
-        require('mason-tool-installer').setup {
-          ensure_installed = ensure_installed
-        }
+        local server_names = vim.tbl_keys(servers or {})
 
         for server_name, _ in pairs(servers) do
           local server = servers[server_name] or {}
@@ -61,8 +57,12 @@ return {
             server.capabilities or {}
           )
           vim.lsp.config(server_name, server or {})
-          vim.lsp.enable(server_name)
         end
+
+        require("mason-lspconfig").setup {
+            ensure_installed = server_names,
+            automatic_enable = server_names,
+        }
       end,
     },
   },
