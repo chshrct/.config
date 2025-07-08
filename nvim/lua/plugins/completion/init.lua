@@ -135,7 +135,7 @@ return {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    enabled = true,
+    enabled = false,
     cmd = "Copilot",
     event = { "InsertEnter" },
     config = function()
@@ -150,6 +150,7 @@ return {
 
   {
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     version = '*',
     opts = {
