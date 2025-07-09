@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/schema-catalog.json",
+  "settings": {
+    "json": {
+      "schemas": [],
+      "validate": {
+        "enable": true
+      }
+    }
+  }
+} 

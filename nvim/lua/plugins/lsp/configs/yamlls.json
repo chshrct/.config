@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/schema-catalog.json",
+  "settings": {
+    "yaml": {
+      "schemaStore": {
+        "enable": false,
+        "url": ""
+      },
+      "schemas": {}
+    }
+  }
+} 
