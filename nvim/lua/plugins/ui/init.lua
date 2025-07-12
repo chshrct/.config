@@ -96,14 +96,11 @@ return {
   {
     "kosayoda/nvim-lightbulb",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    dependencies = { "antoinemadec/FixCursorHold.nvim" },
     opts = {
       autocmd = { enabled = true },
       sign = { enabled = false },
       virtual_text = {
         enabled = true,
-        text = "💡",
-        lens_text = "🔍",
       },
     },
   },
