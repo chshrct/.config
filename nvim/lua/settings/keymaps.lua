@@ -6,9 +6,6 @@ vim.g.maplocalleader = " "
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- normal mode
-vim.keymap.set("i", "jk", "<Esc>", { desc = "Leader key" })
-
 -- better up/down
 vim.keymap.set(
   "n",
