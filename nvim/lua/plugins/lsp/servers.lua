@@ -1,60 +1,110 @@
-local path = require("plenary.path")
-local json = vim.json
-
-local function load_server_config(server_name)
-  local config_path = vim.fn.stdpath("config") .. "/lua/plugins/lsp/configs/" .. server_name .. ".json"
-  local file = path:new(config_path)
-
-  if not file:exists() then
-    vim.notify("Config file not found for " .. server_name .. ": " .. config_path, vim.log.levels.WARN)
-    return {}
-  end
-
-  local content = file:read()
-  local ok, config = pcall(json.decode, content)
-
-  if not ok then
-    vim.notify("Failed to parse JSON config for " .. server_name .. ": " .. config, vim.log.levels.ERROR)
-    return {}
-  end
-
-  return config
-end
-
 local M = {
-  lua_ls = load_server_config("lua_ls"),
+  lua_ls = {
+    settings = {
+      Lua = {
+        hint = {
+          enable = true,
+          arrayIndex = "Enable",
+          setType = true,
+          paramName = "All",
+          paramType = true,
+          semicolon = "SameLine",
+          compose = true,
+        },
+        completion = {
+          callSnippet = "Replace",
+          keywordSnippet = "Replace",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          checkThirdParty = false,
+        },
+      },
+    },
+  },
+  -- web
+  cssls = {},
+  html = {},
+  graphql = {},
+  cssmodules_ls = {},
+  tailwindcss = {},
+  eslint = {
+    root_dir = "/home/chshrct/Projects/shiftmanager-frontend",
+    settings = {
+      experimental = {
+        useFlatConfig = true
+      },
+      packageManager = "yarn",
+      nodePath = ".yarn/sdks",
+    }
+  },
+  hyprls = {},
+  -- emmet_language_server = {},
+  -- ts_ls = {},
+  csharp_ls = {},
 
-  -- Web
-  cssls = load_server_config("cssls"),
-  html = load_server_config("html"),
-  graphql = load_server_config("graphql"),
-  cssmodules_ls = load_server_config("cssmodules_ls"),
-  tailwindcss = load_server_config("tailwindcss"),
-  eslint = load_server_config("eslint"),
-  hyprls = load_server_config("hyprls"),
+  vtsls = {
+    init_options = {
+      hostInfo = "neovim",
+    },
+    root_markers = { ".git/", "package.json" },
+    settings = {
+      refactor_auto_rename = true,
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          completion = {
+            enableServerSideFuzzyMatch = true,
+            entriesLimit = 20,
+          },
+        },
+      },
+      typescript = {
+        tsdk = ".yarn/sdks/typescript/lib",
+        tsserver = {
+          maxTsServerMemory = 8192
+        },
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
+    },
+  },
 
-  -- Languages
-  csharp_ls = load_server_config("csharp_ls"),
-  vtsls = load_server_config("vtsls"),
-
-  -- Config files
-  jsonls = (function()
-    local config = load_server_config("jsonls")
-    config.settings = config.settings or {}
-    config.settings.json = config.settings.json or {}
-    config.settings.json.schemas = require("schemastore").json.schemas()
-    return config
-  end)(),
-
-  yamlls = (function()
-    local config = load_server_config("yamlls")
-    config.settings = config.settings or {}
-    config.settings.yaml = config.settings.yaml or {}
-    config.settings.yaml.schemas = require("schemastore").yaml.schemas()
-    return config
-  end)(),
-
-  taplo = load_server_config("taplo"),
+  -- configs
+  jsonls = {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  },
+  yamlls = {
+    settings = {
+      yaml = {
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas(),
+      },
+    },
+  },
+  taplo = {},
 }
 
 return M
