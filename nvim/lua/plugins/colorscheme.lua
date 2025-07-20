@@ -159,10 +159,6 @@ return {
           -- numbers
           CursorLineNr = { fg = "gold" },
 
-          -- trouble
-          TroubleNormal = { bg = "none" },
-          TroubleCount = { bg = "none" },
-
           -- diffview
           DiffText = { bg = "text" },
           DiffChanged = { bg = "none", fg = "rose" },

@@ -1,10 +1,9 @@
 ### Terminal
-
-- alacritty
+- foot
 
 ### Shell's
 
-- pwsh/fish
+- zsh
 
 ### Prompt
 
@@ -28,7 +27,7 @@
 
 ### FS Prompt
 
-- exa
+- eza
 
 ### File Prompt
 
