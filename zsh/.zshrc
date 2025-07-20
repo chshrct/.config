@@ -199,7 +199,7 @@ alias free='free -m'
 alias ports='netstat -tulanp'
 
 # Convenience
-alias update='pacman -Syu && yay -Syu'
+alias update='pacman -Syu && paru -Syu'
 alias zshreload='source ~/.zshrc'
 alias zshconfig='${EDITOR:-nvim} ~/.zshrc'
 alias updateomz='omz update && update_custom_plugins'
