@@ -2,20 +2,7 @@ return {
   -- blink
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets",
-      {
-        "saghen/blink.compat",
-        lazy = true,
-        opts = {},
-        config = function()
-          -- monkeypatch cmp.ConfirmBehavior for Avante
-          require("cmp").ConfirmBehavior = {
-            Insert = "insert",
-            Replace = "replace",
-          }
-        end,
-      },
-    },
+    dependencies = { "rafamadriz/friendly-snippets" },
     version = false,
     event = { "InsertEnter", "CmdlineEnter" },
     build = "cargo build --release",
@@ -52,26 +39,8 @@ return {
         nerd_font_variant = "normal",
       },
       sources = {
-        default = { "avante_commands", "avante_mentions", "avante_files", "lazydev", "lsp", "path", "buffer" },
+        default = { "lazydev", "lsp", "path", "buffer" },
         providers = {
-          avante_commands = {
-            name = "avante_commands",
-            module = "blink.compat.source",
-            score_offset = 90,
-            opts = {},
-          },
-          avante_files = {
-            name = "avante_files",
-            module = "blink.compat.source",
-            score_offset = 100,
-            opts = {},
-          },
-          avante_mentions = {
-            name = "avante_mentions",
-            module = "blink.compat.source",
-            score_offset = 1000,
-            opts = {},
-          },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
@@ -147,32 +116,4 @@ return {
       })
     end,
   },
-
-  {
-    "yetone/avante.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    version = '*',
-    opts = {
-      provider = "copilot",
-      selection = {
-        provider = "snacks"
-      }
-    },
-    build = "make",
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "zbirenbaum/copilot.lua",
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-  }
 }

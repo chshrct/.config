@@ -1,7 +1,7 @@
 {
-  "theme.font.name": "JetBrainsMono Nerd Font",
-  "theme.font.label": "JetBrainsMono Nerd Font",
-  "theme.font.size": "0.9rem",
+  "theme.font.name": "Hack Nerd Font",
+  "theme.font.label": "Hack Nerd Font",
+  "theme.font.size": "1rem",
   "theme.bar.transparent": true,
   "theme.bar.background": "#2b3339",
   "menus.power.showLabel": false,
@@ -435,5 +435,6 @@
   "bar.customModules.storage.paths": [
     "/"
   ],
-  "menus.dashboard.shortcuts.right.shortcut3.command": "grimblast save area - | swappy -f -"
+  "menus.dashboard.shortcuts.right.shortcut3.command": "grimblast save area - | swappy -f -",
+  "theme.font.weight": 500
 }

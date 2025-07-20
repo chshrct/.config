@@ -66,3 +66,9 @@ tool_state
 btop
 nwg-look
 xsettingsd
+# Sensitive environment variables
+zsh/.zsh.env
+gh/hosts.yml
+zsh/.zcompdump
+.dart-cli-completion
+Throne

@@ -1,0 +1,7 @@
+require('plugins.colorscheme')
+require('plugins.navigation')
+require('plugins.treesitter')
+require('plugins.snacks')
+require('plugins.git')
+require('plugins.code')
+require('plugins.ui')

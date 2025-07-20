@@ -1,0 +1,7 @@
+{
+    "diagnostics.globals": [
+        "vim"
+    ],
+    "workspace.checkThirdParty": false,
+    "completion.autoRequire": false
+}

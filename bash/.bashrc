@@ -83,6 +83,6 @@ eval "$(starship init bash)"
 # z jump
 eval "$(zoxide init bash)"
 
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec uwsm start hyprland.desktop
-fi
+#if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+#    exec uwsm start hyprland.desktop
+#fi

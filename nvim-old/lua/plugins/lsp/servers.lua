@@ -24,22 +24,24 @@ local M = {
       },
     },
   },
+  -- learn
+  gopls = {},
   -- web
   cssls = {},
   html = {},
   graphql = {},
   cssmodules_ls = {},
   tailwindcss = {},
-  eslint = {
-    root_dir = "/home/chshrct/Projects/shiftmanager-frontend",
-    settings = {
-      experimental = {
-        useFlatConfig = true
-      },
-      packageManager = "yarn",
-      nodePath = ".yarn/sdks",
-    }
-  },
+  -- eslint = {
+  --   root_dir = "/home/chshrct/Projects/shiftmanager-frontend",
+  --   settings = {
+  --     experimental = {
+  --       useFlatConfig = true
+  --     },
+  --     packageManager = "yarn",
+  --     nodePath = ".yarn/sdks",
+  --   }
+  -- },
   hyprls = {},
   -- emmet_language_server = {},
   -- ts_ls = {},
