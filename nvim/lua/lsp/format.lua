@@ -1,14 +1,14 @@
-vim.pack.add({ 'https://github.com/stevearc/conform.nvim' })
+-- plugin declared in plugins/spec.lua
 
 require('conform').setup({
 	formatters_by_ft = {
 		go = { 'goimports', 'gofmt' },
 		cs = { 'csharpier' },
-		javascript = { 'prettier', 'eslint' },
-		typescript = { 'prettier', 'eslint' },
-		javascriptreact = { 'prettier', 'eslint' },
-		typescriptreact = { 'prettier', 'eslint' },
-		svelte = { 'prettier' },
+		-- javascript = { 'prettier', 'eslint' },
+		-- typescript = { 'prettier', 'eslint' },
+		-- javascriptreact = { 'prettier', 'eslint' },
+		-- typescriptreact = { 'prettier', 'eslint' },
+		-- svelte = { 'prettier' },
 		css = { 'prettier' },
 		html = { 'prettier' },
 		json = { 'prettier' },
@@ -25,10 +25,4 @@ require('conform').setup({
 	},
 })
 
-vim.keymap.set('n', '<leader>lf', function()
-	require('conform').format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 1000,
-	})
-end, { desc = '[l]sp: [f]ormat' })
+-- keymap moved to lsp/keymaps.lua

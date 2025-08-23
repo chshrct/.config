@@ -68,6 +68,11 @@ local M = {
 				tsserver = {
 					maxTsServerMemory = 8192,
 				},
+				format = {
+					convertTabsToSpaces = false,
+					indentSize = 4,
+					tabSize = 4,
+				},
 				updateImportsOnFileMove = { enabled = 'always' },
 				suggest = {
 					completeFunctionCalls = true,
@@ -79,6 +84,13 @@ local M = {
 					parameterTypes = { enabled = true },
 					propertyDeclarationTypes = { enabled = true },
 					variableTypes = { enabled = false },
+				},
+			},
+			javascript = {
+				format = {
+					convertTabsToSpaces = false,
+					indentSize = 4,
+					tabSize = 4,
 				},
 			},
 		},

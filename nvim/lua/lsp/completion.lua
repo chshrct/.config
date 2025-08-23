@@ -1,6 +1,4 @@
-vim.pack.add({
-	{ src = 'https://github.com/Saghen/blink.cmp' },
-})
+-- plugin declared in plugins/spec.lua
 
 require('blink.cmp').setup({
 	keymap = {

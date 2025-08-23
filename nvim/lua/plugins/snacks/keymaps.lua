@@ -1,32 +1,4 @@
-vim.pack.add{ 'https://github.com/folke/snacks.nvim' }
-
-require('snacks').setup({
-	bigfile = {},
-	quickfile = {},
-	statuscolumn = {},
-	explorer = {},
-	words = {},
-	indent = { enabled = false },
-	scroll = { enabled = false },
-	notifier = { enabled = false },
-	input = {},
-	scratch = {
-		name = 'Notes',
-		ft = 'markdown',
-	},
-	picker = {
-		sources = {
-			explorer = {
-				layout = {
-					layout = {
-						position = 'right',
-					},
-				},
-			},
-		},
-	},
-})
-_G.Snacks = require('snacks')
+local Snacks = require('snacks')
 
 -- core
 vim.keymap.set('n', '<leader>x', function() Snacks.explorer() end, { desc = 'file e[x]plorer' })
@@ -44,8 +16,10 @@ vim.keymap.set('n', '<leader>sb', function() Snacks.picker.buffers() end, { desc
 vim.keymap.set('n', '<leader>ss', function() Snacks.picker.grep() end, { desc = '[s]earch [s]tring' })
 vim.keymap.set({ 'n', 'x' }, '<leader>sw', function() Snacks.picker.grep_word() end, { desc = '[s]earch [w]ord' })
 vim.keymap.set('n', '<leader>sc', function() Snacks.picker.commands() end, { desc = '[s]earch [c]ommands' })
-vim.keymap.set('n', '<leader>s:', function() Snacks.picker.command_history() end, { desc = '[s]earch [:] command history' })
-vim.keymap.set('n', '<leader>sv', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config') }) end, { desc = '[s]earch neo[v]im config' })
+vim.keymap.set('n', '<leader>s:', function() Snacks.picker.command_history() end,
+	{ desc = '[s]earch [:] command history' })
+vim.keymap.set('n', '<leader>sv', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config') }) end,
+	{ desc = '[s]earch neo[v]im config' })
 vim.keymap.set('n', '<leader>sf', function() Snacks.picker.files() end, { desc = '[s]earch [f]iles' })
 vim.keymap.set('n', '<leader>sg', function() Snacks.picker.git_files() end, { desc = '[s]earch [g]it files' })
 vim.keymap.set('n', '<leader>sr', function() Snacks.picker.recent() end, { desc = '[s]earch [r]ecent' })

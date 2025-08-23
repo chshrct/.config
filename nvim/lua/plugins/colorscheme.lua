@@ -1,8 +1,3 @@
-vim.pack.add({
-	{ src = 'https://github.com/thesimonho/kanagawa-paper.nvim' },
-	{ src = 'https://github.com/echasnovski/mini.icons' },
-})
-
 require('kanagawa-paper').setup({
 	undercurl = true,
 	transparent = true,
@@ -61,3 +56,5 @@ package.preload['nvim-web-devicons'] = function()
 	require('mini.icons').mock_nvim_web_devicons()
 	return package.loaded['nvim-web-devicons']
 end
+
+vim.cmd.colorscheme('kanagawa-paper-ink')

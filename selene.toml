@@ -1,0 +1,10 @@
+std = "neovim"
+
+[lints]
+unused_variable = "warn"
+shadowing = "warn"
+unscoped_variables = "deny"
+
+[config]
+unused_variable = { ignore_pattern = "^_" }
+

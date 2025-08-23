@@ -1,10 +1,3 @@
-vim.pack.add({
-	{ src = 'https://github.com/lewis6991/gitsigns.nvim' },
-	{
-		src = 'https://github.com/akinsho/git-conflict.nvim',
-	},
-})
-
 require('gitsigns').setup({
 	signs = {
 		add = { text = '▎' },
@@ -25,4 +18,5 @@ require('gitsigns').setup({
 		require('plugins.git.keymaps').gitsigns()
 	end,
 })
+
 require('git-conflict').setup()
